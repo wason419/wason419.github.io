@@ -11,14 +11,14 @@ github_repo: "https://github.com/hao419" # you code repository
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
-sidebar-about-description: "class基本上只是现有[[Prototype]]（委托！）机制的一种语法糖。"
+sidebar-about-description: "class基本上只是现有[[Prototype]](委托!)机制的一种语法糖。"
 sidebar-avatar: /img/about-BY-gentle.jpg # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # SNS settings
 RSS: false
 # weibo_username:
 zhihu_username:
-github_username: hao419
+github_username: 
 facebook_username:
 jianshu_username:
 #twitter_username:
@@ -28,7 +28,7 @@ jianshu_username:
 permalink: pretty
 paginate: 10
 exclude: ["less", "node_modules", "Gruntfile.js", "package.json", "README.md"]
-anchorjs: true # if you want to customize anchor. check out line:181 of `post.html`
+anchorjs: true # 如果您想自定义锚定，查看post.html的181行
 
 # Gems
 # from PR#40, to support local preview for Jekyll 3.0
@@ -77,4 +77,3 @@ service-worker: true
 
 # Friends
 # friends: [{ title: "Wason の Blog", href: "http://hao419.github.io/" }]
-friends: []
