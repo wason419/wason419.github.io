@@ -1,0 +1,23 @@
+I"I<h1 id="自定义鼠标图标">自定义鼠标图标</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>css:{cursor:url("图标路径"),auto};
+//IE，FF，chrome浏览器都可以.
+
+示例代码：
+&lt;style type="text/css"&gt;        
+    .btn{            
+        cursor: url("./img/pointer.jpg"), auto; 
+      }
+&lt;/style&gt;
+</code></pre></div></div>
+<p>解析：前面的url是自定义鼠标图标的路径，可以为相对/绝对路径。第二个参数是css标准的cursor样式。可换成其他属性（如pointer/crosshair/default/等）<br />
+<code class="language-plaintext highlighter-rouge">注意：w3school推荐第二个参数必须定义一个普通的光标，以防止url定义的光标有备用选项。另外，IE下第二个参数可以省略。</code></p>
+
+<p>自定义鼠标图标，需要注意以下几点:<br />
+① 图标的格式<br />
+IE支持cur,ani,ico这三种格式，FF支持bmp,gif,jpg,cur,ico这几种格式，不支持ani格式，也不支持gif动画格式，因此一般将url引用的图标存为ico或cur格式比较好。<br />
+② 图标的大小<br />
+鼠标图标的尺寸推荐32*32，否则可能出现大小不一致问题。</p>
+
+<p>参考文章：<a href="https://segmentfault.com/a/1190000013350546">使用自定义的鼠标图标</a></p>
+
+:ET

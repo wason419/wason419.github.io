@@ -1,0 +1,93 @@
+I"o<h1 id="webpack学习-一">webpack学习 （一）</h1>
+<h3 id="安装">安装</h3>
+<p>1.webpack 官网建议不要 全局安装，因此先清空 全局的webpack。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm -g uninstall webpack ：卸载webpack
+</code></pre></div></div>
+<p><img src="http://hao419.github.io/img/20200602/2020060201.png" alt="" /></p>
+
+<p>2.清完后 ，开始安装并使用webpack</p>
+
+<p>① 新建文件夹：webpacktest<br />
+② 创建package.json文件：npm init<br />
+③ 安装webpack（在node_modules文件夹中，同时会生成package-lock.json文件）：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install --save-dev webpack
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">控制台查询webpack的版本( # 在非全局安装webpack情况下 )   </code>
+<code class="language-plaintext highlighter-rouge">=====&gt;</code>
+<code class="language-plaintext highlighter-rouge">192:webpacktest hao$ node_modules/.bin/webpack -v</code>
+<code class="language-plaintext highlighter-rouge">4.42.1</code>
+—<br />
+④ 创建app和public文件夹，并创建文件：</p>
+<ul>
+  <li><strong>index.html</strong> –放在public文件夹中;</li>
+  <li><strong>Greeter.js</strong>– 放在app文件夹中;</li>
+  <li><strong>main.js</strong>– 放在app文件夹中;<br />
+<strong>bundle.js文件由 webpack转换并打包生成，代码内容如下</strong><br />
+—
+```
+<!-- index.html -->
+&lt;!DOCTYPE html&gt;</li>
+</ul>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Webpack Sample Project</title>
+  </head>
+  <body>
+    <div id="root">
+    </div>
+    <script src="bundle.js"></script>
+  </body>
+</html>
+<p>————————————————————————————————————————————————
+// Greeter.js
+module.exports = function() {
+  var greet = document.createElement(‘div’);
+  greet.textContent = “Hi there and greetings!”;
+  return greet;
+};
+————————————————————————————————————————————————
+//main.js
+const greeter = require(‘./Greeter.js’);
+document.querySelector(“#root”).appendChild(greeter());
+```</p>
+
+<p><img src="http://hao419.github.io/img/20200602/2020060202.png" alt="" /></p>
+
+<p>⑤ 开始执行webpack 的转换和打包功能：<br />
+<strong>{extry file}出填写入口文件的路径，本文中就是上述main.js的路径，</strong><br />
+<strong>{destination for bundled file}处填写打包文件的存放路径</strong><br />
+<strong>填写路径的时候不用添加{}</strong><br />
+<code class="language-plaintext highlighter-rouge">webpack {entry file} {destination for bundled file}</code></p>
+
+<p>执行命令： # webpack非全局安装的情况下不能直接使用webpack,需要在具体的目录文件夹下执行webpack指令：</p>
+
+<p><del>node_modules/.bin/webpack app/main.js public/bundle.js</del></p>
+
+<p>上面指令是老版本指令，执行的话会报错:<br />
+=====&gt;</p>
+
+<p>ERROR in multi ./app/main.js public/bundle.js<br />
+Module not found: Error: Can’t resolve ‘public/bundle.js’ in ‘/Users/hao/pro/webpacktest’<br />
+@ multi ./app/main.js public/bundle.js main</p>
+
+<hr />
+
+<p>解决方案：<br />
+在4.x的版本下是不行的，要改为：node_modules/.bin/webpack app/main.js -o  public/bundle.js<br />
+成功在public文件夹下生成 bundle.js</p>
+
+<p>⑥ 执行public文件夹下 index.html文件，可看到‘Hi there and greetings!’内容。</p>
+
+<p><img src="http://hao419.github.io/img/20200602/2020060203.png" alt="安装完成" /></p>
+
+<p>如上便安装完成~<br />
+To Be Continue</p>
+
+<h3 id="参考文章">参考文章</h3>
+<p><a href="https://segmentfault.com/a/1190000006178770">1. 入门 webpack，看这篇就够了</a><br />
+<a href="https://www.webpackjs.com/guides/getting-started/">2. webpack 官网</a><br />
+<a href="https://segmentfault.com/a/1190000013699050">3. webpack坑系列–安装webpack-cli</a></p>
+
+:ET

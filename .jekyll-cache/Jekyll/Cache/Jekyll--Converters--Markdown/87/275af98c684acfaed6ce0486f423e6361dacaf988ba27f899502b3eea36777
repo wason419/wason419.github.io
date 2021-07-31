@@ -1,0 +1,38 @@
+I"�<h1 id="css知识点">CSS知识点</h1>
+<h3 id="否定伪类-not-x-">否定伪类 :not( X )</h3>
+
+<ol>
+  <li>X 指的是参数选择器，它不能包含另外一个否定选择器</li>
+  <li>:not伪类的优先级即为它参数选择器的优先级。:not伪类不像其它伪类，它不会增加选择器的优先级。</li>
+  <li>下面是参考例子</li>
+</ol>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---HTML---
+<span class="nt">&lt;p&gt;</span>我是一个段落。<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"fancy"</span><span class="nt">&gt;</span>我好看极了！<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;div&gt;</span>我不是一个段落。<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--</span><span class="err">—</span><span class="nt">css---</span>
+<span class="nc">.fancy</span> <span class="p">{</span>
+  <span class="nl">text-shadow</span><span class="p">:</span> <span class="m">2px</span> <span class="m">2px</span> <span class="m">3px</span> <span class="no">gold</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c">/* 类名不是 `.fancy` 的 &lt;p&gt; 元素 */</span>
+<span class="nt">p</span><span class="nd">:not</span><span class="o">(</span><span class="nc">.fancy</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c">/* 非 &lt;p&gt; 元素 */</span>
+<span class="nt">body</span> <span class="nd">:not</span><span class="o">(</span><span class="nt">p</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">underline</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c">/* 非 &lt;div&gt; 或 &lt;span&gt; 的元素 */</span>
+<span class="nt">body</span> <span class="nd">:not</span><span class="o">(</span><span class="nt">div</span><span class="o">)</span><span class="nd">:not</span><span class="o">(</span><span class="nt">span</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c">/* 类名不是 `.crazy` or `.fancy` 的元素 */</span>
+<span class="c">/* 注意，此语法尚未被较好地支持。 */</span>
+<span class="nt">body</span> <span class="nd">:not</span><span class="o">(</span><span class="nc">.crazy</span><span class="o">,</span> <span class="nc">.fancy</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nl">font-family</span><span class="p">:</span> <span class="nb">sans-serif</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+:ET

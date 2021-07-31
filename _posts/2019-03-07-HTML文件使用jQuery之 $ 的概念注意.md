@@ -4,10 +4,10 @@ title:      HTML文件使用jQuery之 $ 的概念注意
 subtitle:   
 date:       2019-03-07
 author:     Wason
-header-img: img/bg/post-bg-keybord.jpg
+header-img: img/bg/post-bg-03.jpg
 catalog: 	 true
 tags:
-    - jQuery
+  - jQuery
 ---
 # 前言
 HTML文件调用 jQuery，要有jQuery的对象概念
