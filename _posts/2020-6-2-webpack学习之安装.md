@@ -1,6 +1,6 @@
 ---
 layout: post
-title: webpack学习 （一）
+title: webpack学习之安装
 subtitle: 笔记
 date: 2020-06-02
 author: Wason
@@ -10,7 +10,9 @@ tags:
   - webpack
 ---
 
-# webpack学习 （一） #
+# webpack学习之安装 #
+### 概念 ###
+Webpack 是一个前端资源加载/打包工具。它将根据模块的依赖关系进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源。
 ### 安装 ###
 1.webpack 官网建议不要 全局安装，因此先清空 全局的webpack。
 
@@ -31,12 +33,14 @@ npm install --save-dev webpack
 `=====>`
 `192:webpacktest hao$ node_modules/.bin/webpack -v`
 `4.42.1`
+
 ---  
 ④ 创建app和public文件夹，并创建文件：  
 * **index.html** --放在public文件夹中;  
 * **Greeter.js**-- 放在app文件夹中;  
 * **main.js**-- 放在app文件夹中;  
 **bundle.js文件由 webpack转换并打包生成，代码内容如下**  
+
 ---
 ```
 <!-- index.html -->
@@ -68,6 +72,7 @@ document.querySelector("#root").appendChild(greeter());
 ![](http://hao419.github.io/img/20200602/2020060202.png)
 
 ⑤ 开始执行webpack 的转换和打包功能：  
+
 **{extry file}出填写入口文件的路径，本文中就是上述main.js的路径，**  
 **{destination for bundled file}处填写打包文件的存放路径**  
 **填写路径的时候不用添加{}**  

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: webpack学习 （二）
+title: webpack学习之Loaders
 subtitle: 笔记
 date: 2020-06-04
 author: Wason
@@ -10,8 +10,9 @@ tags:
   - webpack
 ---
 
-# webpack学习 （二） #
+# webpack学习之Loaders #
 ### 强大的 Loaders ###  
+
 >一切皆模块
 
 Webpack有一个不可不说的优点，它把所有的文件都当做模块处理，JavaScript代码，CSS和fonts以及图片等等通过合适的loader都可以被处理。

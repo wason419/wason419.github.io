@@ -1,6 +1,6 @@
 ---
 layout: post
-title: webpack学习 （八）
+title: webpack学习之插件[Plugins](缓存)--完结
 subtitle: 笔记
 date: 2020-06-16
 author: Wason
@@ -10,7 +10,7 @@ tags:
   - webpack
 ---
 
-# webpack学习 （八） #
+# webpack学习之插件\[Plugins\](缓存)--完结 #
 ***接上文***
 
 6）缓存
@@ -71,7 +71,7 @@ TypeError: CleanWebpackPlugin is not a constructor
 
 执行 npm run build 后，build文件夹中的众多打包文件会被清空，修改内容后多次打包也只保留一个打包的js文件，只是文件名的hash发生改变。  
 
-***End~***
+***完结~***
 
 ### 参考文章 ###  
 [1. 入门 webpack，看这篇就够了][1]  
