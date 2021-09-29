@@ -1,5 +1,5 @@
 # Site settings
-title: Wason Blog
+title: Wason - 一个乐于笔记和分享的博主
 SEOTitle: Wason Blog
 header-img: img/bg/post-bg-10.jpg
 email: wenghaoduan@163.com
@@ -76,4 +76,13 @@ chrome-tab-theme-color: "#000000"
 service-worker: true
 
 # Friends
-# friends: [{ title: "Wason の Blog", href: "http://hao419.github.io/" }]
+friends: [
+  { 
+    title: "Wason Blog", 
+    href: "http://hao419.github.io/" 
+  },
+  { 
+    title: "Guo Yue Blog", 
+    href: "https://guaguayue.github.io/" 
+  }
+]
