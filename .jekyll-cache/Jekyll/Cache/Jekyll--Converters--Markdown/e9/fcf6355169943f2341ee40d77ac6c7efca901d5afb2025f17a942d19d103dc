@@ -1,4 +1,4 @@
-I"<h1 id="webpack学习-八">webpack学习 （八）</h1>
+I"G<h1 id="webpack学习之插件plugins缓存完结">webpack学习之插件[Plugins](缓存)–完结</h1>
 <p><strong><em>接上文</em></strong></p>
 
 <p>6）缓存
@@ -57,7 +57,7 @@ TypeError: CleanWebpackPlugin is not a constructor
 
 <p>执行 npm run build 后，build文件夹中的众多打包文件会被清空，修改内容后多次打包也只保留一个打包的js文件，只是文件名的hash发生改变。</p>
 
-<p><strong><em>End~</em></strong></p>
+<p><strong><em>完结~</em></strong></p>
 
 <h3 id="参考文章">参考文章</h3>
 <p><a href="https://segmentfault.com/a/1190000006178770">1. 入门 webpack，看这篇就够了</a><br />

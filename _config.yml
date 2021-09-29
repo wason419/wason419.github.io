@@ -84,5 +84,41 @@ friends: [
   { 
     title: "Guo Yue Blog", 
     href: "https://guaguayue.github.io/" 
+  },
+  {
+    title: "ChenYuHan Blog",
+    href: "https://yuhanchen5027.github.io/"
+  }
+]
+
+# shareUrls
+shareurls: [
+  {
+    title: "CSDN", 
+    href: "https://blog.csdn.net/wenghaoduan" 
+  },
+  {
+    title: "简书", 
+    href: "https://www.jianshu.com/u/4b69619cd094" 
+  },
+  {
+    title: "GitHub", 
+    href: "https://github.com/hao419" 
+  },
+  {
+    title: "Gitee", 
+    href: "https://gitee.com/wenghaoduan" 
+  },
+  {
+    title: "掘金", 
+    href: "https://juejin.cn/user/4125023358165736" 
+  },
+  {
+    title: "哔哩哔哩", 
+    href: "https://space.bilibili.com/7028048" 
+  },
+  {
+    title: "思否", 
+    href: "https://segmentfault.com/u/xianyunyehe_5a1d0304ed6a3" 
   }
 ]

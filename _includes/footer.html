@@ -8,7 +8,9 @@
           <br>
         </p>
         <p class="copyright">
-          <a href="https://blog.csdn.net/wenghaoduan">CSDN</a> | <a href="https://juejin.cn/user/4125023358165736">掘金</a> | <a href="https://github.com/hao419">GitHub</a> | <a href="https://www.jianshu.com/u/4b69619cd094">简书</a> | <a href="https://gitee.com/wenghaoduan">Gitee</a> | <a href="https://space.bilibili.com/7028048">哔哩哔哩</a> | <a href="https://segmentfault.com/u/xianyunyehe_5a1d0304ed6a3">思否</a>
+          {% for shareurl in site.shareurls %}
+            <a target="_blank" href="{{shareurl.href}}">{{shareurl.title}}</a> | 
+          {% endfor %}
         </p>
       </div>
     </div>
@@ -19,6 +21,13 @@
   .text-muted {
     cursor: pointer;
   }
+  .copyright a {
+    color: #bfbfbf!important;
+  }
+  .copyright a:hover{
+    color: #337ab7!important;
+    text-decoration: none!important;
+  } 
 </style>
 
 <!-- jQuery -->
