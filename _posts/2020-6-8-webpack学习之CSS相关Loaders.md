@@ -1,6 +1,6 @@
 ---
 layout: post
-title: webpack学习 （四）
+title: webpack学习之CSS相关Loaders
 subtitle: 笔记
 date: 2020-06-08
 author: Wason
@@ -10,7 +10,7 @@ tags:
   - webpack
 ---
 
-# webpack学习 （四） #
+# webpack学习之CSS相关Loaders #
 ### CSS ###
 webpack提供两个工具处理样式表，css-loader 和 style-loader
 **二者处理的任务不同**
@@ -102,7 +102,7 @@ module.exports = {
   ]
 }
 ```  
-执行 npm start (打包后的bundle.js文件里 需要增加浏览器前缀的css属性，会自动增加前缀)
+执行 npm start (打包后的bundle.js文件里 需要增加浏览器前缀的css属性，会自动增加前缀)  
 **`npm run serve`**
 
 

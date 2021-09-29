@@ -1,6 +1,6 @@
 ---
 layout: post
-title: webpack学习 （三）
+title: webpack学习之Babel
 subtitle: 笔记
 date: 2020-06-06
 author: Wason
@@ -10,7 +10,7 @@ tags:
   - webpack
 ---
 
-# webpack学习 （三） #
+# webpack学习之Babel #
 ### Babel ###
 1. Babel其实是一个编译JavaScript的平台，它可以编译代码帮你达到以下目的：
 让你能使用最新的JavaScript代码（ES6，ES7...），而不用管新标准是否被当前使用的浏览器完全支持；
@@ -46,9 +46,9 @@ babel-loader@8 requires Babel 7.x (the package '@babel/core'). If you'd like to 
 
 ```
 
-解决方案：根据提示 更新 babel-loader 版本
-npm uninstall babel-loader -D
-npm i babel-loader@7 -D
+解决方案：根据提示 更新 babel-loader 版本  
+npm uninstall babel-loader -D  
+npm i babel-loader@7 -D  
 
 即可 使用babel处理 es6语法
 

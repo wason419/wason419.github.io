@@ -1,6 +1,6 @@
 ---
 layout: post
-title: webpack学习 （六）
+title: webpack学习之插件[Plugins](热加载)
 subtitle: 笔记
 date: 2020-06-12
 author: Wason
@@ -10,7 +10,7 @@ tags:
   - webpack
 ---
 
-# webpack学习 （六） #
+# webpack学习之插件\[Plugins\](热加载) #
 ***接上文***
 
 3）Hot Module Replacement
@@ -89,13 +89,14 @@ module.exports = {
         hot: true
     },
     module: {
-        rules: [{
+        rules: [
+          {
             test: /(\.jsx|\.js)$/,
             use: {
                 loader: "babel-loader"
             },
             exclude: /node_modules/
-        }, {
+          }, {
             test: /\.css$/,
             // 下面这段代码有问题
             use: ExtractTextPlugin.extract({
@@ -111,18 +112,18 @@ module.exports = {
             })
 使用上面的方法会报  ExtractTextPlugin is not defined 报错，所以改用下面代码：
             use: [
-                  {
-                    loader: 'style-loader'
-                  },
-                  {
-                    loader: 'css-loader',
-                    options: {
-                      modules: true
-                    } 
-                  },
-                  {
-                    loader: 'postcss-loader'
-                  }
+              {
+                loader: 'style-loader'
+              },
+              {
+                loader: 'css-loader',
+                options: {
+                  modules: true
+                } 
+              },
+              {
+                loader: 'postcss-loader'
+              }
             ]
         }]
     },

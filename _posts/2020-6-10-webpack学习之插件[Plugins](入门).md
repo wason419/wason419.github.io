@@ -1,6 +1,6 @@
 ---
 layout: post
-title: webpack学习 （五）
+title: webpack学习之插件[Plugins](入门)
 subtitle: 笔记
 date: 2020-06-10
 author: Wason
@@ -10,11 +10,12 @@ tags:
   - webpack
 ---
 
-# webpack学习 （五） #
+# webpack学习之插件\[Plugins\](入门) #
 ### 插件（Plugins） ###
+
 1. 插件（Plugins）是用来拓展Webpack功能的，它们会在整个构建过程中生效，执行相关的任务。
-2.  Loaders是在打包构建过程中用来处理源文件的（JSX，Scss，Less..），一次处理一个。
-Plugins并不直接操作单个文件，它直接对整个构建过程其作用。
+2.  Loaders是在打包构建过程中用来处理源文件的（JSX，Scss，Less..），一次处理一个。  
+Plugins并不直接操作单个文件，它直接对整个构建过程起作用。
 3. 应用：
 1）给打包后代码添加版权声明的插件   
 ```
@@ -48,12 +49,12 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.BannerPlugin('版权所有，翻版必究')
+      new webpack.BannerPlugin('版权所有，翻版必究')
     ],
 };
 ```
 2）HtmlWebpackPlugin  
-这个插件的作用是依据一个简单的index.html模板，生成一个自动引用你打包后的JS文件的新index.html。这在每次生成的js文件名称不同时非常有用（比如添加了hash值）
+这个插件的作用是依据一个简单的index.html模板，生成一个自动引用你打包后的JS文件的新index.html。这在**每次生成的js文件名称不同时非常有用**（比如添加了hash值）
 
 ---  
 安装：npm install --save-dev html-webpack-plugin

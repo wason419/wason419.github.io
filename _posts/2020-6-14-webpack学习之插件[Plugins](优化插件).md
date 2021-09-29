@@ -1,6 +1,6 @@
 ---
 layout: post
-title: webpack学习 （七）
+title: webpack学习之插件[Plugins](优化插件)
 subtitle: 笔记
 date: 2020-06-14
 author: Wason
@@ -10,7 +10,7 @@ tags:
   - webpack
 ---
 
-# webpack学习 （七） #
+# webpack学习之插件\[Plugins\](优化插件) #
 ***接上文***
 
 5）优化插件 [OccurenceOrderPlugin、UglifyJsPlugin、ExtractTextPlugin]
