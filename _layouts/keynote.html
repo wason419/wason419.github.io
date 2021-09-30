@@ -125,7 +125,10 @@ layout: default
             <div class="sidebar-container
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1 ">
-
+                <!-- 文章总数 -->
+                <hr>
+                <h5>文章总数</h5>
+                <p>{{ paginator.posts.length || -- }}</p>
                 <!-- Featured Tags -->
                 {% if site.featured-tags %}
                 <section>
