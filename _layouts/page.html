@@ -35,7 +35,7 @@ layout: default
       <!-- 文章总数 -->
       <hr>
       <h5>文章总数</h5>
-      <p>{{ paginator.posts.length || -- }}</p>
+      <p>{{ paginator.total_posts }}</p>
       <!-- Featured Tags -->
       {% if site.featured-tags %}
       <section>
@@ -88,7 +88,7 @@ layout: default
       <!-- 文章总数 -->
       <hr>
       <h5>文章总数</h5>
-      <p>{{ paginator.posts.length || -- }}</p>
+      <p>{{ paginator.total_posts }}</p>
       <!-- Featured Tags -->
       {% if site.featured-tags %}
       <section>
