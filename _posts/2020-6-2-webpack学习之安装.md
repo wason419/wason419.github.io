@@ -4,7 +4,7 @@ title: webpack学习之安装
 subtitle: 笔记
 date: 2020-06-02
 author: Wason
-header-img: img/bg/post-bg-20.jpg
+header-img: img/bg/post-bg-20.JPG
 catalog: true
 tags:
   - webpack
