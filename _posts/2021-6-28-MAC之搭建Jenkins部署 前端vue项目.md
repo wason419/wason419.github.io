@@ -4,7 +4,7 @@ title: MAC之搭建Jenkins部署 前端vue项目
 subtitle: 笔记
 date: 2021-06-28
 author: Wason
-header-img: img/bg/post-bg-10.jpg
+header-img: img/bg/post-bg-20.jpg
 catalog: true
 tags:
   - Jenkins
