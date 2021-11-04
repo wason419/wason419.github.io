@@ -4,7 +4,7 @@ title: webpack学习之Loaders
 subtitle: 笔记
 date: 2020-06-04
 author: Wason
-header-img: img/bg/post-bg-14.jpg
+header-img: img/bg/post-bg-21.jpg
 catalog: true
 tags:
   - webpack

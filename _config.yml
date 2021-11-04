@@ -1,7 +1,7 @@
 # Site settings
 title: Wason - 一个乐于笔记和分享的博主
 SEOTitle: Wason Blog
-header-img: img/bg/post-bg-10.jpg
+header-img: img/bg/post-bg-19.jpg
 email: wenghaoduan@163.com
 description: "Every failure is leading towards success."
 keyword: "Wason, Wason Blog, Web, Vue, JS"
@@ -78,16 +78,36 @@ service-worker: true
 # Friends
 friends: [
   { 
-    title: "Wason Blog", 
-    href: "http://hao419.github.io/" 
-  },
-  { 
     title: "Guo Yue Blog", 
     href: "https://guaguayue.github.io/" 
   },
   {
     title: "ChenYuHan Blog",
     href: "https://yuhanchen5027.github.io/"
+  },
+  {
+    title: "假期开发仔",
+    href: "https://www.jianshu.com/u/c241df6b66d1"
+  },
+  {
+    title: "神话的Blog",
+    href: "https://segmentfault.com/u/shenhua_58690131dafc2"
+  },
+  {
+    title: "zurmokeeper",
+    href: "https://juejin.cn/user/2453765681588343"
+  },
+  {
+    title: "kky",
+    href: "https://kkyflying.github.io/"
+  },
+  {
+    title: "vincent-yip",
+    href: "https://github.com/vincent-yip"
+  },
+  {
+    title: "Kevin Qiu [Doctor]",
+    href: "https://gitee.com/kevin.qiu"
   }
 ]
 

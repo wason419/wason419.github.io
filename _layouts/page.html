@@ -32,7 +32,10 @@ layout: default
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 sidebar-container">
-
+      <!-- 文章总数 -->
+      <hr>
+      <h5>文章总数</h5>
+      <span>{{ paginator.total_posts }}</span>
       <!-- Featured Tags -->
       {% if site.featured-tags %}
       <section>
@@ -82,6 +85,10 @@ layout: default
                 col-xs-12
                 sidebar-container
             ">
+      <!-- 文章总数 -->
+      <hr>
+      <h5>文章总数</h5>
+      <span>{{ paginator.total_posts }}</span>
       <!-- Featured Tags -->
       {% if site.featured-tags %}
       <section>

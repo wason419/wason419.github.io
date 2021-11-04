@@ -4,7 +4,7 @@ title: webpack学习之插件[Plugins](热加载)
 subtitle: 笔记
 date: 2020-06-12
 author: Wason
-header-img: img/bg/post-bg-01.jpg
+header-img: img/bg/post-bg-25.jpg
 catalog: true
 tags:
   - webpack

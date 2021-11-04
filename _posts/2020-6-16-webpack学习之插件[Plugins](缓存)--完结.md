@@ -4,7 +4,7 @@ title: webpack学习之插件[Plugins](缓存)--完结
 subtitle: 笔记
 date: 2020-06-16
 author: Wason
-header-img: img/bg/post-bg-03.jpg
+header-img: img/bg/post-bg-27.jpg
 catalog: true
 tags:
   - webpack
