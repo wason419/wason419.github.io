@@ -4,7 +4,7 @@ title: ArcGIS API for JavaScript 4.22学习 - GIS基础概念
 subtitle: 笔记
 date: 2021-07-2
 author: Wason
-header-img: img/bg/post-bg-12.jpg
+header-img: img/bg/post-bg-arcgis.jpg
 catalog: true
 tags:
   - ArcGIS
