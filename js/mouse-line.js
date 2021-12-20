@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Author: wason
+ * @Date: 2021-12-10 09:56:29
+ * @LastEditTime: 2021-12-20 17:25:43
+ * @LastEditors: wason
+ * @Reference: 
+ */
 !function() {
 
   function n(n, e, t) {
@@ -18,7 +26,7 @@
       z: n(i, "zIndex", -1),
       o: n(i, "opacity", .5),
       c: n(i, "color", "0,0,0"),
-      n: n(i, "count", 99)
+      n: n(i, "count", 10)
     }
   }
 
