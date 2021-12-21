@@ -9,7 +9,7 @@
         </p>
         <p class="copyright">
           {% for shareurl in site.shareurls %}
-            <a target="_blank" href="{{shareurl.href}}">{{shareurl.title}}</a> | 
+          <a target="_blank" href="{{shareurl.href}}">{{shareurl.title}}</a> |
           {% endfor %}
         </p>
       </div>
@@ -21,26 +21,79 @@
   .text-muted {
     cursor: pointer;
   }
+
   .copyright a {
-    color: #bfbfbf!important;
+    color: #bfbfbf !important;
   }
-  .copyright a:hover{
-    color: #337ab7!important;
-    text-decoration: none!important;
-  } 
+
+  .copyright a:hover {
+    color: #337ab7 !important;
+    text-decoration: none !important;
+  }
+</style>
+
+<!-- 图片点击放大 -->
+<style>
+  .image-cover-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    position: fixed;
+    z-index: 30;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+    transition: opacity ease 0.3s;
+    pointer-events: none;
+  }
+
+  .model-shown {
+    pointer-events: all;
+    opacity: 1;
+  }
+
+  .image-cover-modal-content {
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+  }
+
+  #image-cover-caption {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3rem;
+    bottom: 0;
+    line-height: 3rem;
+    text-align: center;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.33);
+  }
+
+  @media only screen and (max-width: 45rem) {
+    .image-cover-modal-content {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
 </style>
 
 <!-- jQuery -->
-<script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script>
+<script src="{{ " /js/jquery.min.js " | prepend: site.baseurl }}"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="{{ "/js/bootstrap.min.js " | prepend: site.baseurl }}"></script>
+<script src="{{ " /js/bootstrap.min.js " | prepend: site.baseurl }}"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="{{ "/js/hux-blog.min.js " | prepend: site.baseurl }}"></script>
+<script src="{{ " /js/hux-blog.min.js " | prepend: site.baseurl }}"></script>
 
 <!-- 鼠標移動，線條吸附 -->
-<script src="../js/mouse-line.js" ></script>
+<script src="/js/mouse-line.js"></script>
 
 <!-- Service Worker -->
 {% if site.service-worker %}
@@ -61,7 +114,7 @@
 
 <!-- 顶部页面向上按钮 -->
 <script>
-  $('.text-muted').on('click',function(event) {
+  $('.text-muted').on('click', function (event) {
     event.preventDefault();
     $('html, body').animate({
       scrollTop: 0
@@ -72,7 +125,7 @@
 
 <!-- async load function -->
 <script>
-  function async (u, c) {
+  function async(u, c) {
     var d = document,
       t = 'script',
       o = d.createElement(t),
@@ -111,7 +164,7 @@
 <script>
   // only load tagcloud.js in tag.html
   if ($('#tag_cloud').length !== 0) {
-    async ('{{ "/js/jquery.tagcloud.js" | prepend: site.baseurl }}', function () {
+    async('{{ "/js/jquery.tagcloud.js" | prepend: site.baseurl }}', function () {
       $.fn.tagcloud.defaults = {
         //size: {start: 1, end: 1, unit: 'em'},
         color: {
@@ -126,7 +179,7 @@
 
 <!--fastClick.js -->
 <script>
-  async ("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
     var $nav = document.querySelector("nav");
     if ($nav) FastClick.attach($nav);
   })
@@ -176,8 +229,6 @@
 </script>
 {% endif %}
 
-
-
 <!-- Side Catalog -->
 {% if page.catalog %}
 <script type="text/javascript">
@@ -208,7 +259,7 @@
    * Doc: https://github.com/davist11/jQuery-One-Page-Nav
    * Fork by Hux to support padding
    */
-  async ("{{ '/js/jquery.nav.js' | prepend: site.baseurl }}", function () {
+  async("{{ '/js/jquery.nav.js' | prepend: site.baseurl }}", function () {
     $('.catalog-body').onePageNav({
       currentClass: "active",
       changeHash: !1,
