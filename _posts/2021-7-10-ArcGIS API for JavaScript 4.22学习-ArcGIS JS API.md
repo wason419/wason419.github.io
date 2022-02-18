@@ -19,7 +19,8 @@ tags:
 
 [1. ArcGIS API for JavaScript的版本区别](#anc1)  
 [2. ArcGIS API for JavaScript的引入方式](#anc2)  
-[3. require 和 loadModules 方法的区别](#anc3)
+[3. ArcGIS API for JavaScript基础概念讲解](#anc3)
+[4. require 和 loadModules 方法的区别](#anc4)
 
 ## 详述 ##  
 <a id='anc1'></a>
@@ -106,7 +107,7 @@ tags:
 **2.3 构建项目**  
 目前网上涉及ArcGIS JS API的文章资料，要么就是 3.x 的，要么便是使用 4.17 版本或更早版本的 API, 因而只能参考借鉴，更多的还是要增加对官方文档的理解以及查找相关文章来参考。  
 
-若是使用 4.17 甚至更早的版本的，便是采用 AMD 模块方式，该方式的项目需要引用库 esri-loader 并使用 第三方加载器加载依赖。[此处说明下 require() 和 loadModules() 的区别](#anc3)。并且，由于版本限制，网上大部分项目是采用多页面/原生代码方式开发，因而还需要将 ArcGIS 项目放置在 本地IIS服务器、Tomcat、Nginx等本地服务器环境下运行。以上环境搭建的相关文档 可自行百度。下面分享几篇参考文章:   
+若是使用 4.17 甚至更早的版本的，便是采用 AMD 模块方式，该方式的项目需要引用库 esri-loader 并使用 第三方加载器加载依赖。[此处说明下 require() 和 loadModules() 的区别](#anc4)。并且，由于版本限制，网上大部分项目是采用多页面/原生代码方式开发，因而还需要将 ArcGIS 项目放置在 本地IIS服务器、Tomcat、Nginx等本地服务器环境下运行。以上环境搭建的相关文档 可自行百度。下面分享几篇参考文章:   
 ① [ArcGIS API for JavaScript 4.13 本地IIS服务器部署][10]
 ② [Win7安装SMTP服务的方法][11]
 
@@ -114,9 +115,12 @@ tags:
 
 
 <a id='anc3'></a>
-### 3. require 和 loadModules 方法的区别 ###  
+### 3. ArcGIS API for JavaScript基础概念讲解 ###  
 
 
+
+<a id='anc4'></a>
+### 4. require 和 loadModules 方法的区别 ###  
 
 
 
