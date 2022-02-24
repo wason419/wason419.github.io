@@ -11,7 +11,7 @@ tags:
 ---
 
 # ArcGIS API for JavaScript 4.22学习 - ArcGIS JS API 使用分享 #
-本节主要介绍下 ArcGIS API for JavaScript 的 API 列表内容，以及分享自己实际使用到的 API 的实现方式。  
+本节主要介绍下 ArcGIS API for JavaScript 的 API 列表内容，以及分享部分 API 的代码实现。  
 
 一. ArcGIS API for JavaScript 的官网文档链接：[ArcGIS API for JavaScript/API Reference][1]  
 二. 根据 ArcGIS API for JavaScript 提供的 API Reference 列表数据，对4.22版本所有 API 进行规整如下图：  
@@ -22,13 +22,13 @@ tags:
 ---  
 
 
-三. API 调用分享  
-接下来，将对部分API的功能实现进行分享  
+三. 部分 API 代码实现   
+下面将对部分 API 功能的代码实现进行分享  
 
 1.图层切换
 ArcGIS 的界面呈现方式，可以简单理解为是由Map管理数据，View负责视图容器，而视图中则是由不同图层叠加组合来显示的。因此，在实际应用会需要对地图视图进行切换，这时我们所做的操作便是对视图中的图层进行更换。图层分为底图和上层图层。我所实现的方式是更改底图。  
 
-首先，创建初始化文件 init.js，在init.js中 引入arcgis相关Api，并定义初始化方法 init(). 如下：  
+首先，创建初始化文件 init.js，在init.js中 引入arcgis相关Api，引用方式可查阅上一篇文章《构建 Vue+ArcGIS 项目》，并定义初始化方法 init(). 如下：  
 
 ```
 <!-- init.js -->
@@ -111,7 +111,7 @@ function ArcGIS() {
 
       let _url2 = baseMapUrl + baseMapAppid + '/wmts' + "?service=wmts&request=gettile&version=1.0.0&layer=" + _type2 + "&style=default" +
         "&tilematrixset=c&format=tiles&tilecol=" + _col + "&tilerow=" + _row + "&tilematrix=" + _level + "&geokey=" + baseMapUrlKey
-      // 天地图图层数据
+      // 天地图图层数据0
       this._urlText = baseMapUrl + baseMapAppid + '/wmts' + "?service=wmts&request=gettile&version=1.0.0&layer=" + _type1 + "&style=default" +
       "&tilematrixset=c&format=tiles&tilecol=" + _col + "&tilerow=" + _row + "&tilematrix=" + _level + "&geokey=xxxx"
 
