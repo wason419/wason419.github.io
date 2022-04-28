@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ArcGIS API for JavaScript 4.22学习 - ArcGIS JS API 使用分享
+title: ArcGIS API for JavaScript 4.22学习 - ArcGIS JS API 使用分享(一)
 subtitle: 笔记
 date: 2021-07-18
 author: Wason
@@ -10,7 +10,7 @@ tags:
   - ArcGIS
 ---
 
-# ArcGIS API for JavaScript 4.22学习 - ArcGIS JS API 使用分享 #
+# ArcGIS API for JavaScript 4.22学习 - ArcGIS JS API 使用分享(一) #
 本节主要介绍下 ArcGIS API for JavaScript 的 API 列表内容，以及分享部分 API 的代码实现。  
 
 一. ArcGIS API for JavaScript 的官网文档链接：[ArcGIS API for JavaScript/API Reference][1]  
@@ -20,7 +20,6 @@ tags:
 
 
 ---  
-
 
 三. 部分 API 代码实现   
 下面将对部分 API 功能的代码实现进行分享  
@@ -522,6 +521,8 @@ this.removeLayer();
 this.map.addMany([this.baseMap.myMap, this.baseMap.myWMap])
 ```
 3. 上面代码 表示的是 先清空图层，再加载对应新图层。
+
+> 项目代码：[ArcGIS-GIS学习代码](https://download.csdn.net/download/wenghaoduan/85219256)
 
 
 
