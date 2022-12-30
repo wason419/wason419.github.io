@@ -29,7 +29,7 @@
 <blockquote>
   <p>简单理解： 回流是会更改到 渲染树结构的，重绘只是对样式的简单更改，如背景色、字体颜色等而已。</p>
   <h3 id="如何减少重绘和回流的次数">如何减少重绘和回流的次数</h3>
-  <p><img src="http://hao419.github.io/img/20190927/2019092701.png" alt="减少重绘与回流的建议" /></p>
+  <p><img src="http://wason419.github.io/img/20190927/2019092701.png" alt="减少重绘与回流的建议" /></p>
 </blockquote>
 
 :ET

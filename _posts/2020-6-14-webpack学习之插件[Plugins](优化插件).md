@@ -116,11 +116,11 @@ removed 4 packages and updated 2 packages in 5.716s
 ```
 在package.json中的安装版本是:  
 
-![](http://hao419.github.io/img/20200614/2020061401.png)
+![](http://wason419.github.io/img/20200614/2020061401.png)
 
 ④ 再次执行 npm run build，即可  
 
-![](http://hao419.github.io/img/20200614/2020061402.png)
+![](http://wason419.github.io/img/20200614/2020061402.png)
 
 
 ***To Be Continue~***

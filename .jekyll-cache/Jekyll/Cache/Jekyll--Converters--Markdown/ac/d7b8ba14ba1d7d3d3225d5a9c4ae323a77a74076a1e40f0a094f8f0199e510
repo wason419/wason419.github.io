@@ -28,7 +28,7 @@ text-align: center;
 
 父元素高度固定
 </code></pre></div></div>
-<p><img src="http://hao419.github.io/img/20200105/2020010501.png" alt="" /></p>
+<p><img src="http://wason419.github.io/img/20200105/2020010501.png" alt="" /></p>
 
 <h3 id="img-路径为空时css去掉边框">img 路径为空时，CSS去掉边框</h3>
 <p>当img的 src路径为空时，CSS去掉其边框</p>

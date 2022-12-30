@@ -3,12 +3,12 @@
   "title": "Wason Blog",
   "author": "Wason <wenghaoduan@163.com>",
   "version": "1.7.0",
-  "homepage": "http://hao419.github.io",
+  "homepage": "http://wason419.github.io",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hao419/hao419.github.io"
+    "url": "https://github.com/hao419/wason419.github.io"
   },
-  "bugs": "https://github.com/hao419/hao419.github.io/issues",
+  "bugs": "https://github.com/hao419/wason419.github.io/issues",
   "devDependencies": {
     "grunt": ">=1.3.0",
     "grunt-contrib-less": "~0.11.4",

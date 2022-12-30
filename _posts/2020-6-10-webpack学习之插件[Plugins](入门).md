@@ -132,7 +132,7 @@ module.exports = {
 
 **执行 npm start ,打包后 即可在build文件夹内看到新文件**
 
-![](http://hao419.github.io/img/20200610/2020061001.png)
+![](http://wason419.github.io/img/20200610/2020061001.png)
 
 
 ***To Be Continue~***

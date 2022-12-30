@@ -37,7 +37,7 @@
 <p>使用text的text-align-last 为justify 属性，便可实现把每行li内的文字两端对齐，再设置下li的padding内边距即可。
 样式效果：</p>
 
-<p><img src="http://hao419.github.io/img/20200416/2020041601.png" alt="" /></p>
+<p><img src="http://wason419.github.io/img/20200416/2020041601.png" alt="" /></p>
 
 <h3 id="补充知识点">补充知识点</h3>
 <p><strong>CSS3—first-child或者nth-child(1) 不起作用的原因</strong></p>

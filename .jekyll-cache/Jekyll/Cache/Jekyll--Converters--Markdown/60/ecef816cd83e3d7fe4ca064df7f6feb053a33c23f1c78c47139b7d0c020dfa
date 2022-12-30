@@ -103,11 +103,11 @@ removed 4 packages and updated 2 packages in 5.716s
 </code></pre></div></div>
 <p>在package.json中的安装版本是:</p>
 
-<p><img src="http://hao419.github.io/img/20200614/2020061401.png" alt="" /></p>
+<p><img src="http://wason419.github.io/img/20200614/2020061401.png" alt="" /></p>
 
 <p>④ 再次执行 npm run build，即可</p>
 
-<p><img src="http://hao419.github.io/img/20200614/2020061402.png" alt="" /></p>
+<p><img src="http://wason419.github.io/img/20200614/2020061402.png" alt="" /></p>
 
 <p><strong><em>To Be Continue~</em></strong></p>
 

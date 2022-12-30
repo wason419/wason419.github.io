@@ -5,7 +5,7 @@ header-img: img/bg/post-bg-19.jpg
 email: wenghaoduan@163.com
 description: "Every failure is leading towards success."
 keyword: "Wason, Wason Blog, Web, Vue, JS"
-url: "http://hao419.github.io" # your host, for absolute URL
+url: "http://wason419.github.io" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/hao419" # you code repository
 
@@ -52,7 +52,7 @@ gitalk:
   enable: false #是否开启Gitalk评论
   clientID: 0511ea7ce3851360da87 #生成的clientID
   clientSecret: 7a10a83e49e1e57253a960da55c140549bfb2e1a #生成的clientSecret
-  repo: hao419.github.io #仓库名称
+  repo: wason419.github.io #仓库名称
   owner: hao419 #github用户名
   admin: hao419
   distractionFreeMode: true #是否启用类似FB的阴影遮罩

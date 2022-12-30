@@ -1,10 +1,11 @@
-I"<h1 id="简单理解">简单理解</h1>
+I"
+<h1 id="简单理解">简单理解</h1>
 <p>let : 声明的变量仅在 块级作用域 有效
 var: 则是以 函数为作用域</p>
 
 <p>从 <a href="https://www.cnblogs.com/fundebug/p/6812842.html">ES6之’let’能替代’var’吗 </a> 贴文中学习了解到相关知识，总结来看，两者都还有各种的用途，let对浏览器版本的要求较高，像IE要11，Chrome要66
 ps: 虽然可以用别的方式解决兼容问题</p>
-
+wason419.github.io
 <p><img src="http://hao419.github.io/img/20191015/2019101501.png" alt="" /></p>
 
 <p>知识扩充：

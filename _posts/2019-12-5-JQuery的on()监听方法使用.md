@@ -61,11 +61,11 @@ contextmenu
 1.jQuery :even 选择器
 选取每个带有偶数 index 值的元素（比如 2、4、6）  
 index 值从 0 开始，所有第一个元素是偶数 (0)  
-![](http://hao419.github.io/img/20191205/2019120501.png)
+![](http://wason419.github.io/img/20191205/2019120501.png)
 
 2.jQuery :odd 选择器  
 选取每个带有奇数 index 值的元素（比如 1、3、5）  
-![](http://hao419.github.io/img/20191205/2019120502.png)
+![](http://wason419.github.io/img/20191205/2019120502.png)
 
 
 

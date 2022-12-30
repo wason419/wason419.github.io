@@ -16,28 +16,28 @@ tags:
 组合：Jenkins + GitHub + NodeJS  
 版本：我使用的nodejs版本是  
 
-![](http://hao419.github.io/img/20210628/2021062801.png)  
+![](http://wason419.github.io/img/20210628/2021062801.png)  
 
 注：npm还是不要用6.5.0版本的（包括6.5.next.0，虽然说是这两个没什么区别），电脑的npm一开始是安装了最新版本6.5.0的，但总是一直报you must update following to modules: npm: 6.5.0-next.0 should be >= 3.0.0问题，一开始以为Jenkins是直接使用自己电脑的node，所以一直在更新自己电脑的node/npm版本，但总是会报错。折腾大半天后，问了技术群，有人说是缓存问题，建议全局处理。后面就通过清缓存、重启电脑、选了10.15版本重装node，终于定位到了问题，如下图，Jenkins里选择的NodeJS版本原来也是有关系的，这里需要选跟自己电脑一样的，就可以了  
 
-![](http://hao419.github.io/img/20210628/2021062802.png)
-![](http://hao419.github.io/img/20210628/2021062803.png)
+![](http://wason419.github.io/img/20210628/2021062802.png)
+![](http://wason419.github.io/img/20210628/2021062803.png)
 
 ## 一. 搭建并安装插件 ##
 可以参考该博文 [Jenkins安装 for Mac][1]，先下载搭建Jenkins.  
 其中，如下图，每次Retry点击，都会有些插件因下载失败而报红；但是多点击几次，会发现报红的插件会越来越少的。另外，不确定用不用翻墙下载，反正我是翻墙下的。
 
-![](http://hao419.github.io/img/20210628/2021062804.png)
+![](http://wason419.github.io/img/20210628/2021062804.png)
 
 同时，也不确定哪些插件是必须的，反正就在这一步先把插件下载好，缺的后面再补。要补充插件的，如下图，可以到 `[ 系统管理 ]` → `[ 插件管理 ]` → `Available` 中下载
 
-![](http://hao419.github.io/img/20210628/2021062805.png)
+![](http://wason419.github.io/img/20210628/2021062805.png)
 
 当然，有些插件总是出现下载失败的情况，这里可以自己下载，再本地上传,网址如下：      
 [jenkins安装publish over ssh插件][2]  
 [插件下载的网址][3]
 
-![](http://hao419.github.io/img/20210628/2021062806.png)
+![](http://wason419.github.io/img/20210628/2021062806.png)
 
 至于到底需要哪些插件，也不是很清楚，网上整理的大概如下  
 ```
@@ -70,17 +70,17 @@ jenkins的常用插件：
 [使用Jenkins自动化部署Vue.js项目——兼容Vue CLI3生成的项目][4]  
 参考上文，新建项目  
 
-![](http://hao419.github.io/img/20210628/2021062808.png)
+![](http://wason419.github.io/img/20210628/2021062808.png)
 
 `其中，最关键的是project的配置(Configure)上，如下图`
 
-![](http://hao419.github.io/img/20210628/2021062809.png)
-![](http://hao419.github.io/img/20210628/2021062810.png)
-![](http://hao419.github.io/img/20210628/2021062811.png)
-![](http://hao419.github.io/img/20210628/2021062812.png)
-![](http://hao419.github.io/img/20210628/2021062813.png)
-![](http://hao419.github.io/img/20210628/2021062814.png)
-![](http://hao419.github.io/img/20210628/2021062815.png)
+![](http://wason419.github.io/img/20210628/2021062809.png)
+![](http://wason419.github.io/img/20210628/2021062810.png)
+![](http://wason419.github.io/img/20210628/2021062811.png)
+![](http://wason419.github.io/img/20210628/2021062812.png)
+![](http://wason419.github.io/img/20210628/2021062813.png)
+![](http://wason419.github.io/img/20210628/2021062814.png)
+![](http://wason419.github.io/img/20210628/2021062815.png)
 
 在 Build 里面做命令配置即可，另外我使用了两个shell，因为网上有说法是，像npm install操作时间比较久的，就要分开shell配置，故我便放到两个shell里，并按执行次序做排列。
 
@@ -121,23 +121,23 @@ rm -R dist
 
 ## 四. 问题 ##
 1. mac系统里，执行shell的命令，会去读写Jenkins里的文件,这操作会遇到用户权限问题，可直接更改Jenkins的workspace文件夹的读写操作权限来解决  
-![](http://hao419.github.io/img/20210628/2021062816.png)
-![](http://hao419.github.io/img/20210628/2021062817.png)
+![](http://wason419.github.io/img/20210628/2021062816.png)
+![](http://wason419.github.io/img/20210628/2021062817.png)
 
 2. 执行shell中的 scp x1.zip root@xxxxxxx:/opt/…/webapps 命令，用于上传文件到目标服务器时，报错： host key verification failed.  
 参考该文解决方案 [Jenkins系列_使用scp命令进行远程文件复制遇到的坑][6]，采用的是配置免密登录的方式，处理方式参考下文，   
 [Linux配置SSH公钥认证与Jenkins远程登录进行自动发布][7] , 方法采用的是C方法
 
-![](http://hao419.github.io/img/20210628/2021062818.png)
-![](http://hao419.github.io/img/20210628/2021062819.png)
+![](http://wason419.github.io/img/20210628/2021062818.png)
+![](http://wason419.github.io/img/20210628/2021062819.png)
 
 不过参照上文，创建的私钥公钥都是别的文件里，且在别的文件夹里是无效的，故我又把生成的3个文件复制到了Jenkins的ssh文件下，一定要3个都复制过来！！  
 
-![](http://hao419.github.io/img/20210628/2021062820.png)
+![](http://wason419.github.io/img/20210628/2021062820.png)
 
 且还得在Jenkins的 `[系统管理]` → `[系统设置]` → `Publish over SSH` 里配置  
 
-![](http://hao419.github.io/img/20210628/2021062821.png)
+![](http://wason419.github.io/img/20210628/2021062821.png)
 
 3. 报错：[Error: Cannot find module 'chalk'][8]  
 也是报上面错误，原因是我们前端Vue项目上传时，在GIT上是不会上传node_model文件的，Jenkins下拉代码后，执行npm run build便会报错，只要执行下npm install，安装完资源后，再打包即可。

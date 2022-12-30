@@ -33,7 +33,7 @@ module.exports = {
 ```
 执行 npm run build 后在build文件夹中，打包后的文件便会带hash后缀：
 
-![](http://hao419.github.io/img/20200616/2020061601.png)
+![](http://wason419.github.io/img/20200616/2020061601.png)
 
 **去除build文件中的残余文件**
 
