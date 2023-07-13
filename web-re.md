@@ -4,7 +4,7 @@
  * @Descripttion: 
  * @Date: 2021-08-02 23:50:18
  * @LastEditors: wason
- * @LastEditTime: 2022-12-07 00:43:19
+ * @LastEditTime: 2023-07-13 16:27:08
 -->
 
 # 联系方式
@@ -30,7 +30,7 @@
 我在此项目中负责赋码系统的前端业务开发工作，采用基于Vue + ECharts3 + Element-UI技术，涉及前端业务、组件封装、动态路由、图表统计、地图图例显示处理(ArcGIS API for JS)等等，该项目结合区块链技术，可实现对全国不同系统来源的房屋建筑信息进行批量赋码、申请审批、赋码分析、动态管理，达到数据的持久化、安全化、线上化。
 
 ### 智能物联编辑控制平台
-我在此项目中负责PC端Web业务开发工作，采用基于Vue + IndexedDB + Element-UI技术，实现浏览器端的本地数据库存储、索引查询及增删改，和可编辑拖拽自定义控件布局等。该项目是通过在PC端自定义不同的物联控件布局模式，结合中间设备、末端物联设备及相关协议，进而实现可编辑化、平台化的智能物联控制能力。
+我在此项目中负责PC端Web业务开发工作，采用基于Electron + Vue + IndexedDB + Element-UI技术，实现浏览器端的本地数据库存储、索引查询及增删改，和可编辑拖拽自定义控件布局等。该项目是通过在PC端自定义不同的物联控件布局模式，结合中间设备、末端物联设备及相关协议，进而实现可编辑化、平台化的智能物联控制能力。
 
   
 ## 广州炒米信息科技有限公司 （ 2020年6月 ~ 2021年10月 ）
@@ -54,7 +54,7 @@
 
 # 技能清单
 以下均为我熟练使用的技能
-- Web开发：HTML5 / JavaScript / CSS3 / Vue / 小程序 / D3.js / IndexedDB
+- Web开发：HTML5 / JavaScript / CSS3 / Vue / 小程序 / D3.js / IndexedDB / Electron
 - 前端框架：uni-app / Bootstrap / Yii / jQuery
 - 前端工具：ECharts3 / Vant / Element-UI / SCSS / Stylus / UEditor / jqGrid / Select2
 - 版本管理、文档和自动化部署工具：Git
