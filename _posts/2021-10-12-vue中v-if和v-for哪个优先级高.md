@@ -7,7 +7,8 @@ author: Wason
 header-img: img/bg/post-bg-14.jpg
 catalog: true
 tags:
-  - vue, v-if, v-for
+  - Vue
+  - v-if/v-for
 ---
 
 # vue中v-if和v-for哪个优先级高 #

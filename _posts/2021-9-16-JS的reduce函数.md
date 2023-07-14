@@ -7,7 +7,8 @@ author: Wason
 header-img: img/bg/post-bg-12.jpg
 catalog: true
 tags:
-  - reduce, js
+  - reduce
+  - JS
 ---
 
 # JS的reduce函数 #

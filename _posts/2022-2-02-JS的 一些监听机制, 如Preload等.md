@@ -7,7 +7,9 @@ author: Wason
 header-img: img/bg/post-bg-21.jpg
 catalog: true
 tags:
-  - js, Preload, 预加载
+  - JS
+  - Preload
+  - 预加载
 ---
 
 # JS的 一些监听机制，如Preload等 #

@@ -7,7 +7,7 @@ author: Wason
 header-img: img/bg/post-bg-24.jpg
 catalog: true
 tags:
-  - vue
+  - Vue
 ---
 
 # Vue3的VDOM内部是做了什么, 使得比vue2更快 #

@@ -7,7 +7,7 @@ author: Wason
 header-img: img/bg/post-bg-23.jpg
 catalog: true
 tags:
-  - vue
+  - Vue
 ---
 
 # Vue的data为什么是函数？Vue内部是怎么处理的？ #
