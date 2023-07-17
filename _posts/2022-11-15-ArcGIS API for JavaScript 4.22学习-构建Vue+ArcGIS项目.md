@@ -2,7 +2,7 @@
 layout: post
 title: ArcGIS API for JavaScript 4.22学习 - 构建 Vue+ArcGIS 项目
 subtitle: 笔记
-date: 2021-07-15
+date: 2022-11-15
 author: Wason
 header-img: img/bg/post-bg-17.jpg
 catalog: true

@@ -2,7 +2,7 @@
 layout: post
 title: ArcGIS API for JavaScript 4.22学习 - ArcGIS JS API 使用分享(一)
 subtitle: 笔记
-date: 2021-07-18
+date: 2022-11-18
 author: Wason
 header-img: img/bg/post-bg-18.jpg
 catalog: true
