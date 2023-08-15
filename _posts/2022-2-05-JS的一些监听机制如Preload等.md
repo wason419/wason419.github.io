@@ -1,8 +1,8 @@
 ---
 layout: post
-title: JS的 一些监听机制，如Preload等
+title: JS的一些监听机制如Preload等
 subtitle: 笔记
-date: 2022-02-02
+date: 2022-02-05
 author: Wason
 header-img: img/bg/post-bg-21.jpg
 catalog: true
@@ -12,7 +12,7 @@ tags:
   - 预加载
 ---
 
-# JS的 一些监听机制，如Preload等 #
+# JS的一些监听机制如Preload等 #
 
 ## 前言 ##  
 首先，由预加载问题引申，可分为 如下2点分析：  
@@ -272,7 +272,7 @@ export default {
 ```
 
 
-![图1](/img/20220202/2022020201.png "图1")  
+![图1](/img/20220205/2022020501.png "图1")  
 (图1)  
 
     
