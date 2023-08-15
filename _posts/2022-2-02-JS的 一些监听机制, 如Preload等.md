@@ -104,16 +104,16 @@ queue.loadFile({id:"logo", src:"logo.png"});
 一、预加载  
 1. 普通预加载处理  
 
-```js
+```vue
 ------------------------start------------------------
-<template>
-  <div v-if="showContent" class="content">{{ content }}</div>
-</template>
+<template>  
+  <div v-if="showContent" class="content">{{ content }}</div>   
+</template>  
 <script>
-import { getContent } from './api.js'
-export default {
-  data() {
-    return {
+import { getContent } from './api.js'  
+export default {  
+  data() {  
+    return {  
       content: '',
       showContent: false
     }
@@ -136,14 +136,15 @@ export default {
 }
 </script>
 
-借助 mounted 生命周期，模块加载时，先进行loading显示处理，待内部相关数据加载完毕后，再关闭loading，显示页面。  
+借助 mounted 生命周期，模块加载时，先进行loading显示处理，待内部相关数据加载完毕后，再关闭loading，显示页面。   
 
-------------------------end------------------------
+------------------------end------------------------  
+
 ```
 
 2. Vue Router处理实现  
 
-```js
+```
 ------------------------start------------------------
 [e.g. 1]
 const router = new VueRouter({
@@ -197,7 +198,8 @@ scrollBehavior官方文档：
 https://router.vuejs.org/zh/guide/advanced/scroll-behavior.html
 见下【图1】
 
-------------------------end------------------------
+------------------------end------------------------   
+
 ```
 
 3. 利用webpack处理实现  
@@ -209,36 +211,36 @@ webpack提供了两个关键字来实现预取（prefetch）和预加载（prelo
 例如：
 
 ```js
-------------------------start------------------------
+------------------------start------------------------  
 const Foo = () => import(/* webpackPrefetch: true */ './Foo.vue')
 const Bar = () => import(/* webpackPreload: true */ './Bar.vue')
-------------------------end------------------------
+------------------------end------------------------  
 ```
 
 二、懒加载
 1. 使用ES 的 import()动态导入组件（Vue 2.4.0以上版本支持使用import()方法来动态导入组件）
 
-```js
-------------------------start------------------------
-e.g. 我们可以定义一个异步组件，这个组件在需要的时候才会被加载进来：
-Vue.component('my-component', () => import('./MyComponent.vue'));
-------------------------end------------------------
+```
+------------------------start------------------------  
+e.g. 我们可以定义一个异步组件，这个组件在需要的时候才会被加载进来：  
+Vue.component('my-component', () => import('./MyComponent.vue'));  
+------------------------end------------------------  
 ```
 
 2. vue异步组件技术——异步加载
 vue-router配置路由，使用vue的异步组件技术，可以实现按需加载。此时，一个组件将生成一个js文件。
 
-```js
+```
 ------------------------start------------------------
-/* vue异步组件技术 */
-{ path: '/home', name: 'home', component: resolve => require(['@/components/home'],resolve) }
+/* vue异步组件技术 */   
+{ path: '/home', name: 'home', component: resolve => require(['@/components/home'],resolve) }   
 ------------------------end------------------------
 ```
 
-**[content_3]**  
+**[content_3]**   
 
-```js
-------------------------start------------------------
+```vue
+------------------------start------------------------   
 // main.js
 import Vue from 'vue'
 import App from './App.vue'
@@ -266,7 +268,7 @@ export default {
   }
 }
 </script>  
-------------------------end------------------------
+------------------------end------------------------   
 ```
 
 
