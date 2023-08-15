@@ -22,9 +22,9 @@ tags:
 ## 详述 ##  
 <a id='anc1'></a>  
 
-### `一、预加载、懒加载是什么，及其作用是什么？` ###  
-    1. 预加载是指提前加载Web应用程序资源，以便在需要时可以快速访问这些资源，提高用户的体验；  
-    2. 懒加载就是当用户需要访问某个组件时才会把该组件的代码加载进来（按需加载），而不是一开始就把所有组件的代码都加载进来，这样可以减少初始加载的时间，提高页面的响应速度。  
+### `一、预加载、懒加载是什么，及其作用是什么？` ###   
+  1. 预加载是指提前加载Web应用程序资源，以便在需要时可以快速访问这些资源，提高用户的体验；   
+  2. 懒加载就是当用户需要访问某个组件时才会把该组件的代码加载进来（按需加载），而不是一开始就把所有组件的代码都加载进来，这样可以减少初始加载的时间，提高页面的响应速度。   
 
 <a id='anc2'></a>  
 
@@ -35,8 +35,9 @@ tags:
 2. Vue框架下，可通过 Router 或 webpack 配置实现，见下【content_2】；  
 3. 补充 vue框架下 使用Vue 插件来实现图片预加载，见下【content_3】;  
 
-```
-[content_1]
+
+
+**[content_1]**
 
 一、preload.js 简介
 1. preload.js 是一个用于预加载资源的JS库。它是由 Grant Skinner 开发的，旨在为Flash开发人员提供工具来管理预加载。但是，它也可以用于HTML5游戏和Web应用程序。preload.js 可以同时处理多个文件，提供回调和事件监听器，可用于跟踪和报告加载进度，并处理加载错误。
@@ -45,6 +46,7 @@ tags:
 或者 直接引用 <script src="path/to/preloadjs.min.js"></script>
 
 3. 使用举例：
+```
 ------------------------start------------------------
 创建一个 Preload 实例，并配置要加载的文件
 var queue = new createjs.LoadQueue(false);
@@ -67,6 +69,7 @@ function handleComplete() {
     console.log("所有文件已加载完成");
 }
 ------------------------end------------------------
+```
 
 4. 监听事件
 preload.js 提供了几个事件，监视资源加载的状态：
@@ -75,6 +78,7 @@ preload.js 提供了几个事件，监视资源加载的状态：
 * complete：全部文件加载完毕之后触发。
 * error：加载失败时触发。
 
+```
 ------------------------start------------------------
 var queue = new createjs.LoadQueue(false);
 queue.on("fileload", handleFileLoad);
@@ -86,18 +90,19 @@ queue.loadManifest([
     // ...
 ]);
 ------------------------end------------------------
+```
 
 preload.js 也可以单独加载各种类型的资源，例如图片、音频、视频和JSON数据等等。
 [e.g. 加载图片]
 queue.loadFile({id:"logo", src:"logo.png"});
-```
 
-```
-[content_2]
+
+**[content_2]**  
 日常在vue框架下 进行懒加载、预加载处理的情况会比较多些。下面分别描述：
 
 一、预加载
 1. 普通预加载处理
+```
 ------------------------start------------------------
 <template>
   <div v-if="showContent" class="content">{{ content }}</div>
@@ -131,8 +136,10 @@ export default {
 
 借助 mounted 生命周期，模块加载时，先进行loading显示处理，待内部相关数据加载完毕后，再关闭loading，显示页面。
 ------------------------end------------------------
+```
 
 2. Vue Router处理实现
+```
 ------------------------start------------------------
 [e.g. 1]
 const router = new VueRouter({
@@ -178,41 +185,51 @@ const router = new VueRouter({
     }
   }
 });
-通过在路由meta 属性中配置状态值，在路由守卫或 Vue Router提供的滚动行为监听中 进行【scrollBehavior】预加载判断并执行相关函数。
-scrollBehavior官方文档：https://router.vuejs.org/zh/guide/advanced/scroll-behavior.html，见下【图1】
+
+通过在路由meta 属性中配置状态值，在路由守卫或 Vue Router提供的滚动行为监听中 
+进行【scrollBehavior】预加载判断并执行相关函数。
+
+scrollBehavior官方文档：
+https://router.vuejs.org/zh/guide/advanced/scroll-behavior.html
+见下【图1】
 
 ------------------------end------------------------
+```
 
-3. 利用webpack处理实现
-webpack提供了两个关键字来实现预取（prefetch）和预加载（preload）
+3. 利用webpack处理实现  
+webpack提供了两个关键字来实现预取（prefetch）和预加载（preload）  
 
-- 预取是指浏览器在空闲时加载资源，
-- 预加载则是在当前页面加载完毕后立即加载下一个页面需要的资源。
+- 预取是指浏览器在空闲时加载资源，  
+- 预加载则是在当前页面加载完毕后立即加载下一个页面需要的资源。  
 
 例如：
+```
 ------------------------start------------------------
 const Foo = () => import(/* webpackPrefetch: true */ './Foo.vue')
 const Bar = () => import(/* webpackPreload: true */ './Bar.vue')
 ------------------------end------------------------
-
+```
 
 二、懒加载
 1. 使用ES 的 import()动态导入组件（Vue 2.4.0以上版本支持使用import()方法来动态导入组件。）
+```
 ------------------------start------------------------
 e.g. 我们可以定义一个异步组件，这个组件在需要的时候才会被加载进来：
 Vue.component('my-component', () => import('./MyComponent.vue'));
 ------------------------end------------------------
+```
 
 2. vue异步组件技术——异步加载
 vue-router配置路由，使用vue的异步组件技术，可以实现按需加载。此时，一个组件将生成一个js文件。
+```
 ------------------------start------------------------
 /* vue异步组件技术 */
 { path: '/home', name: 'home', component: resolve => require(['@/components/home'],resolve) }
 ------------------------end------------------------
 ```
 
+**[content_3]**  
 ```
-[content_3]
 ------------------------start------------------------
 // main.js
 import Vue from 'vue'
