@@ -2,7 +2,7 @@
 layout: post
 title: JS的一些监听机制如Preload等
 subtitle: 笔记
-date: 2022-02-05
+date: 2022-02-07
 author: Wason
 header-img: img/bg/post-bg-21.jpg
 catalog: true
@@ -47,7 +47,7 @@ tags:
 
 3. 使用举例：
 
-```js
+```
 ------------------------start------------------------
 创建一个 Preload 实例，并配置要加载的文件
 var queue = new createjs.LoadQueue(false);
@@ -72,12 +72,13 @@ function handleComplete() {
 ------------------------end------------------------
 ```
 
-4. 监听事件
-preload.js 提供了几个事件，监视资源加载的状态：
-* fileload：每次成功加载完一个文件后触发。
-* progress：每次有文件加载时都会触发。可以使用 event.loaded 属性获取当前加载进度。
-* complete：全部文件加载完毕之后触发。
-* error：加载失败时触发。
+
+4. 监听事件     
+preload.js 提供了几个事件，监视资源加载的状态：  
+* fileload：每次成功加载完一个文件后触发。  
+* progress：每次有文件加载时都会触发。可以使用 event.loaded 属性获取当前加载进度。  
+* complete：全部文件加载完毕之后触发。  
+* error：加载失败时触发。  
 
 ```js
 ------------------------start------------------------
@@ -93,9 +94,9 @@ queue.loadManifest([
 ------------------------end------------------------
 ```
 
-preload.js 也可以单独加载各种类型的资源，例如图片、音频、视频和JSON数据等等。
-[e.g. 加载图片]
-queue.loadFile({id:"logo", src:"logo.png"});
+preload.js 也可以单独加载各种类型的资源，例如图片、音频、视频和JSON数据等等。  
+[e.g. 加载图片]   
+queue.loadFile({id:"logo", src:"logo.png"});   
 
 
 **[content_2]**  
@@ -104,17 +105,17 @@ queue.loadFile({id:"logo", src:"logo.png"});
 一、预加载  
 1. 普通预加载处理  
 
-```vue
+```
 ------------------------start------------------------
 <template>  
-  <div v-if="showContent" class="content">{{ content }}</div>   
+  <div v-if="showContent" class="content">{{ exContent }}</div>   
 </template>  
 <script>
 import { getContent } from './api.js'  
 export default {  
   data() {  
     return {  
-      content: '',
+      exContent: '',
       showContent: false
     }
   },
@@ -130,7 +131,7 @@ export default {
   },
   methods: {
     async preloadContent() {
-      this.content = await getContent()
+      this.exContent = await getContent()
     }
   }
 }
@@ -139,14 +140,14 @@ export default {
 借助 mounted 生命周期，模块加载时，先进行loading显示处理，待内部相关数据加载完毕后，再关闭loading，显示页面。   
 
 ------------------------end------------------------  
-
 ```
 
-2. Vue Router处理实现  
+2. Vue Router处理实现    
 
-```
+[e.g. 1]   
+ 
+```js
 ------------------------start------------------------
-[e.g. 1]
 const router = new VueRouter({
   routes: [
     {
@@ -162,9 +163,16 @@ const router = new VueRouter({
     }
   ]
 })
-通过在路由的meta属性中，配置preload ，可实现 进入路由组件之前 立即调用 preload 所配置的函数。
 
-[e.g. 2]
+通过在路由的meta属性中，配置preload ，可实现 进入路由组件之前 立即调用 preload 所配置的函数。
+------------------------end------------------------    
+
+```
+
+[e.g. 2]   
+
+```js
+------------------------start------------------------  
 const router = new VueRouter({
   routes: [
     {
@@ -190,25 +198,25 @@ const router = new VueRouter({
     }
   }
 });
-
-通过在路由meta 属性中配置状态值，在路由守卫或 Vue Router提供的滚动行为监听中 
-进行【scrollBehavior】预加载判断并执行相关函数。
-
-scrollBehavior官方文档：
-https://router.vuejs.org/zh/guide/advanced/scroll-behavior.html
-见下【图1】
-
 ------------------------end------------------------   
 
 ```
 
-3. 利用webpack处理实现  
-webpack提供了两个关键字来实现预取（prefetch）和预加载（preload）  
+通过在路由meta 属性中配置状态值，在路由守卫或 Vue Router提供的滚动行为监听中   
+进行【scrollBehavior】预加载判断并执行相关函数。  
 
-- 预取是指浏览器在空闲时加载资源，  
+scrollBehavior官方文档：  
+https://router.vuejs.org/zh/guide/advanced/scroll-behavior.html   
+见下【图1】  
+
+
+3. 利用webpack处理实现   
+webpack提供了两个关键字来实现预取（prefetch）和预加载（preload）   
+
+- 预取是指浏览器在空闲时加载资源，   
 - 预加载则是在当前页面加载完毕后立即加载下一个页面需要的资源。  
 
-例如：
+例如：  
 
 ```js
 ------------------------start------------------------  
