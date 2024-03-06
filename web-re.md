@@ -4,7 +4,7 @@
  * @Descripttion: 
  * @Date: 2021-08-02 23:50:18
  * @LastEditors: wason
- * @LastEditTime: 2024-01-30 15:08:45
+ * @LastEditTime: 2024-02-21 10:58:40
 -->
 
 # 联系方式
@@ -59,8 +59,8 @@
 - 版本管理、文档和自动化部署工具：Git
 
   
-# 技术博客
-<img src="https://wason419.github.io/img/web-re.png" width = "200" alt="blog二维码"/>
+<!-- # 技术博客
+<img src="https://wason419.github.io/img/web-re.png" width = "200" alt="blog二维码"/> -->
 
 
 # 致谢

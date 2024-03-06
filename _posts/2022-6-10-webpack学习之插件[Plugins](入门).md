@@ -2,7 +2,7 @@
 layout: post
 title: webpack学习之插件[Plugins](入门)
 subtitle: 笔记
-date: 2020-06-10
+date: 2022-06-10
 author: Wason
 header-img: img/bg/post-bg-24.jpg
 catalog: true

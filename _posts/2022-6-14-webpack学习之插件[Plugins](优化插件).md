@@ -2,7 +2,7 @@
 layout: post
 title: webpack学习之插件[Plugins](优化插件)
 subtitle: 笔记
-date: 2020-06-14
+date: 2022-06-14
 author: Wason
 header-img: img/bg/post-bg-26.jpg
 catalog: true

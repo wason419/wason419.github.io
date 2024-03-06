@@ -2,7 +2,7 @@
 layout: post
 title: webpack学习之Babel
 subtitle: 笔记
-date: 2020-06-06
+date: 2022-06-06
 author: Wason
 header-img: img/bg/post-bg-22.jpg
 catalog: true

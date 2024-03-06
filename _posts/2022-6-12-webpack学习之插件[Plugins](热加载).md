@@ -2,7 +2,7 @@
 layout: post
 title: webpack学习之插件[Plugins](热加载)
 subtitle: 笔记
-date: 2020-06-12
+date: 2022-06-12
 author: Wason
 header-img: img/bg/post-bg-25.jpg
 catalog: true
