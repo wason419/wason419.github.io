@@ -5,7 +5,7 @@
 
 
 # 个人信息
-<img src="https://wason419.github.io/img/mi.jpg" width = "100" alt="照片" align="right"/>
+<img src="https://wason419.github.io/img/mi.jpg" width = "125" alt="照片" align="right"/>
 
 - <font size=6>翁浩端</font> / 男 / 1993  
 - 本科 / 华南理工大学广州学院软件工程专业  
@@ -47,8 +47,8 @@
 我在此项目中独自负责**依托D3.js + svg比例尺 + jQuery技术**，实现对旧有xhtml气候平台-PC端系统进行技术升级。该项目需要绘制很多**可视化图表(含绘制线段、圆形、方格、坐标图、热量堆积区图等)以及图表导出**。在D3文档资料较少及不依靠ECharts图表库的情况下，通过不断技术摸索，投入不少时间与精力，逐步按期按要求实现了**各类线性数据的自定义化**呈现。其中，实现了依托jQuery来读取txt、xml类型文件中的数据，如一系列地球经纬度坐标数据，通过 地球经纬度-XY像素坐标换算公式 等工具，对数据进行处理并使用 D3.js实现在页面上绘制图表与导出。
 
 
-<!-- # 技术博客
-<img src="https://wason419.github.io/img/web-re.png" width = "200" alt="blog二维码"/> -->
+# 技术博客
+<img src="https://wason419.github.io/img/web-re.png" width = "200" alt="blog二维码"/>
 
 
 # 致谢
