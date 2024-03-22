@@ -5,14 +5,16 @@
 
 
 # 个人信息
- - <img src="https://wason419.github.io/img/mi.jpg" width = "100" alt="照片"/>
- - <font size=6>翁浩端</font> / 男 / 1993  
- - 本科 / 华南理工大学广州学院软件工程专业   
+<img src="https://wason419.github.io/img/mi.jpg" width = "100" alt="照片" align="right"/>
 
- - 技术博客：<a href="https://wason419.github.io/">Wason Blog</a>   
- - 期望职位：Web前端工程师  
+- <font size=6>翁浩端</font> / 男 / 1993  
+- 本科 / 华南理工大学广州学院软件工程专业  
 
+- 技术博客：<a href="https://wason419.github.io/">Wason Blog</a>  
+- 期望职位：Web前端工程师  
+- 期望城市：广州  
 
+ 
 # 技能清单
 以下均为我熟练使用的技能
 - Web开发：Vue / IndexedDB / Electron / 小程序 / D3.js / HTML5 / JavaScript / CSS3 / TypeScript / Node.js
@@ -24,7 +26,7 @@
 # 工作经历
 ## 奥格科技股份有限公司 （ 2021年10月 ~ 至今 ）
 
-### 智能物联编辑控制平台
+### 房屋智能物联编辑控制平台
 我在该项目中负责浏览器(PC)端的开发工作，项目**基于IndexedDB + Vue + Electron + Element-UI**技术，可实现浏览器端的**本地数据库存储、索引查询及增删改，以及可拖拽、可编辑自定义控件信息和位置布局**等。该项目旨在通过在PC端自定义相关物联控件等方式，结合移动设备、末端物联设备及相关通信协议(如websocket)，进而实现可编辑化、平台化的智能物联控制能力。
 
 ### 全国房屋建筑在线赋码平台项目 
@@ -45,8 +47,8 @@
 我在此项目中独自负责**依托D3.js + svg比例尺 + jQuery技术**，实现对旧有xhtml气候平台-PC端系统进行技术升级。该项目需要绘制很多**可视化图表(含绘制线段、圆形、方格、坐标图、热量堆积区图等)以及图表导出**。在D3文档资料较少及不依靠ECharts图表库的情况下，通过不断技术摸索，投入不少时间与精力，逐步按期按要求实现了**各类线性数据的自定义化**呈现。其中，实现了依托jQuery来读取txt、xml类型文件中的数据，如一系列地球经纬度坐标数据，通过 地球经纬度-XY像素坐标换算公式 等工具，对数据进行处理并使用 D3.js实现在页面上绘制图表与导出。
 
 
-# 技术博客
-<img src="https://wason419.github.io/img/web-re.png" width = "200" alt="blog二维码"/>
+<!-- # 技术博客
+<img src="https://wason419.github.io/img/web-re.png" width = "200" alt="blog二维码"/> -->
 
 
 # 致谢
