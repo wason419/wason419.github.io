@@ -4,7 +4,7 @@
  * @Descripttion: 
  * @Date: 2024-04-10 17:09:22
  * @LastEditors: wason
- * @LastEditTime: 2024-04-19 17:09:10
+ * @LastEditTime: 2024-04-19 17:31:49
 -->
 # 联系方式
 
@@ -79,6 +79,8 @@
 *技术&业务成果：*       
     - 结合Vue、ECharts3、ElementUI及七牛云直播API，实现大屏数据可视化展示、跨终端实时音视频通讯功能。
     - 参与后端研发，使用JFinal(Java)框架、MySQL数据库，开发业务接口，实现业务模块的增删改查操作。
+
+<div style="page-break-after: always;"></div>
 
 2. 气候平台技术升级     
 *责任描述：* 负责项目代码迁移 (xhtml+jsp → D3.js+jQuery), 优化主流浏览器适配问题，协助团队成员优化。   
