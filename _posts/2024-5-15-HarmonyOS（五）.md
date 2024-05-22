@@ -11,7 +11,7 @@ tags:
 ---
 
 # HarmonyOS（五） #  
-![](/img/20240515/2024051501.jpg)    
+![](/img/20240515/2024051501.png)    
 上图中，Components部分的装饰器为组件级别的状态管理，Application部分为应用的状态管理。  
 开发者可以通过@StorageLink/@LocalStorageLink实现应用和组件状态的双向同步，通过@StorageProp/@LocalStorageProp实现应用和组件状态的单向同步。   
 
