@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>web_resumeN.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<!--
+ * @Author: wason
+ * @version: 
+ * @Descripttion: 
+ * @Date: 2024-04-10 17:09:22
+ * @LastEditors: wason
+ * @LastEditTime: 2024-08-29 15:29:49
+-->
+<h1 id="%E8%81%94%E7%B3%BB%E6%96%B9%E5%BC%8F">联系方式</h1>
+<p><strong>手机</strong>：18826278304    <strong>Email</strong>：<a href="mailto:wenghaoduan@163.com">wenghaoduan@163.com</a>    <strong>微信号</strong>：wenghaoduan</p>
+<h1 id="%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF">个人信息</h1>
+<img src="https://wason419.github.io/img/mi.jpg" width = "125" alt="照片" align="right"/>
+<ul>
+<li>
+<p><font size=6>翁浩端</font> / 男 / 1993 / 共产党员</p>
+</li>
+<li>
+<p>本科 / 华南理工大学广州学院 <strong>·</strong> 软件工程专业 / 6年工作经验</p>
+</li>
+<li>
+<p>技术博客：<a href="https://wason419.github.io/">Wason Blog</a></p>
+</li>
+<li>
+<p>期望职位：Web前端工程师   |   期望城市：广州</p>
+</li>
+</ul>
+<h1 id="%E6%8A%80%E8%83%BD%E6%B8%85%E5%8D%95">技能清单</h1>
+<ol>
+<li>善于分析业务需求，能够深入理解业务需求并总结产品功能和流程，同时能够提出可行的实现方案。</li>
+<li>具有良好的协作能力和团队合作精神，善于积极沟通，主动寻找各方资源以确保项目顺利进行。</li>
+<li>熟练掌握 JavaScript、ES6、CSS3 和 HTML5 等前端技术，具备扎实的技术基础，做到灵活运用。</li>
+<li>具备丰富的项目实战经验，熟练使用以下技能：
+<ul>
+<li>Web开发：Vue2、3 / webpack、vite / 小程序 / Node.js / TypeScript / IndexedDB / ArcGIS</li>
+<li>可视化库：ECharts3 / ElementUI / Vant / D3.js / Ant Design of Vue / Bootstrap</li>
+<li>前端框架：Electron / uni-app / jQuery / SCSS / Stylus / Yii</li>
+<li>版本管理、文档和自动化部署工具：Git</li>
+</ul>
+</li>
+<li>掌握低代码、数据可视化项目开发，了解鸿蒙(HarmonyOS)，了解微前端，了解并使用Java、SpringBoot、MySQL等后端编程语言及框架。</li>
+</ol>
+<h1 id="%E5%B7%A5%E4%BD%9C%E7%BB%8F%E5%8E%86">工作经历</h1>
+<h2 id="%E5%A5%A5%E6%A0%BC%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8--2021%E5%B9%B410%E6%9C%88--%E8%87%B3%E4%BB%8A--font-size2%E4%B8%AD%E7%BA%A7%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88font">奥格科技股份有限公司 （ 2021年10月 ~ 至今 ）  <font size=2><em>[中级前端工程师]</em></font></h2>
+<p><strong>主要工作内容：</strong> 参与跨部门项目基础权限和核心功能开发、业务需求分析、前端技术选型、协同产品推动项目进展、旧项目重构升级以及公共组件封装工作。<br>
+<strong>重点项目：</strong></p>
+<ol>
+<li>
+<p>全国房屋建筑在线赋码平台项目<br>
+<em>责任描述：</em> 负责前端核心功能的开发与封装，协助业务开发，优化地图显示处理，以及整理封装公共组件 供跨项目使用。<br>
+<em>项目产出：</em> 在【住房和城乡建设部】等相关部门人员指导与支持下，综合房屋建筑信息库资源及不同行政级别（省、市、区/县）人员的管理操作要求，结合区块链技术，可实现对全国不同系统来源的房屋建筑信息进行批量赋码、申请审批、赋码分析、动态管理，达到数据的持久化、安全化、线上化。             .<br>
+<em>技术&amp;业务成果：</em></p>
+<ul>
+<li>已在新疆、山东等部分区/县地区开展试行业务。</li>
+<li>开发【用户登录/动态角色权限/数据字典等核心功能】，实现跨项目应用。</li>
+<li>对项目公共组件进行二次封装(vue2 -&gt; vue3+ts), 丰富公司组件库，为新项目研发提供支持。</li>
+</ul>
+</li>
+<li>
+<p>住房和城乡建设部—乡村建设评价信息系统项目<br>
+<em>责任描述：</em> 负责管理系统（PC端）中多个业务模块的开发与优化，以及乡村采集平台（微信小程序端）日常业务维护工作。<br>
+<em>项目产出：</em> 可对全国范围内 大部分乡村建设发展现状的情况，进行信息采集、数据更新、图片/视频录入和治理评价，充分实现线上感知与管理。<br>
+<em>技术&amp;业务成果：</em></p>
+<ul>
+<li>项目PC端由【vue3+ts】开发，小程序端由【微信原生】开发实现</li>
+<li>已合作多年，每年视具体情况开展为期2-3月的 全国乡村信息更新采集行动，同步相关数据资源</li>
+<li>及时响应，按要求迭代最新采集需求与界面样式，同步优化一线人员采集体验。</li>
+</ul>
+</li>
+</ol>
+<!-- 最高文件体积 71.8MB -->
+<ol start="3">
+<li>房屋智能物联编辑控制平台<br>
+<em>责任描述：</em> 负责前端技术选型，架构搭建，核心功能开发，协助推动项目验收，配合项目迭代。<br>
+<em>项目产出：</em> 通过在PC端(二维界面)上【自定义拖拽】及组合 相关物联控件元素，结合移动设备、末端物联设备及通信协议(如websocket)的方式，实现可编辑化、平台化的智能物联控制能力。<br>
+<em>技术&amp;业务成果：</em>
+<ul>
+<li>通过Vuex、@drop监听、坐标计算及事件流捕获拦截处理，实现可拖动式添加或缩放元素。</li>
+<li>通过【IndexedDB、Node.js 和 Electron框架】，打包生成 本地化高数据量存储化的桌面应用程序软件，提升用户操作体验。</li>
+</ul>
+</li>
+</ol>
+<h2 id="%E5%B9%BF%E5%B7%9E%E7%82%92%E7%B1%B3%E4%BF%A1%E6%81%AF%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8--2020%E5%B9%B46%E6%9C%88--2021%E5%B9%B410%E6%9C%88--font-size2%E4%B8%AD%E7%BA%A7%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88font">广州炒米信息科技有限公司 （ 2020年6月 ~ 2021年10月 ） <font size=2><em>[中级前端工程师]</em></font></h2>
+<p><strong>主要工作内容：</strong> 协同产品推动项目进展，结合市场表现快速反应，积极推广，打造公司拳头产品。<br>
+<strong>重点项目：</strong></p>
+<ol>
+<li>闪链签(电子合同签署)项目<br>
+<em>责任描述：</em> 参与跨平台技术框架选型、小程序完整研发流程，结合canvas、H5内嵌方式及快速迭代，支持重大节假日活动推广。<br>
+<em>项目产出：</em> 打造适用于【电子商务】的线上签章平台，走在同类市场前沿，实现【月流水上千单】。<br>
+<em>技术&amp;业务成果：</em>
+<ul>
+<li>结合【uni-app(Vue)框架】、自定义组件及H5内嵌方式，实现跨平台小程序端应用。</li>
+<li>通过【PDF.js】、hammer.js工具，实现PDF文件可预览可自定义显示，以及印章证书可拖拽，提升用户体验。</li>
+<li>结合市场表现及反馈，主动积极调整，不断提高用户粘性及产品质量。</li>
+</ul>
+</li>
+</ol>
+<h2 id="%E5%B7%A5%E7%A0%94%E5%BC%80%E5%8F%91%E6%89%80-2017%E5%B9%B47%E6%9C%88--2020%E5%B9%B45%E6%9C%88--font-size2%E5%89%8D%E7%AB%AF%E8%B4%9F%E8%B4%A3%E4%BA%BAfont">工研开发所（ 2017年7月 ~ 2020年5月 ）  <font size=2><em>[前端负责人]</em></font></h2>
+<!-- 需求文档/验收 为其他项目，前端开发/培训为重点项目 -->
+<p><strong>主要工作内容：</strong> 参与项目技术支撑与验收，项目需求文档编写，重点项目开发工作，次级项目提供技术支持，以及前端团队人员的任务分配和培训工作。<br>
+<strong>重点项目：</strong></p>
+<ol>
+<li>SeeVe远程会议办公系统<br>
+<em>责任描述：</em> 负责项目前端业务开发，结合【甘特图】、【Tapd平台】，把控项目进度及分配成员任务，提供相关技术支持及培训工作。<br>
+<em>项目产出：</em> 实现统计数据的大屏显示，PC端与移动端多人同屏会议、音视频分离可控等操作；系统顺利交付，也被同级院所采用。<br>
+<em>技术&amp;业务成果：</em>
+<ul>
+<li>结合Vue、ECharts3、ElementUI及七牛云直播API，实现大屏数据可视化展示、跨终端实时音视频通讯功能。</li>
+<li>参与后端研发，使用JFinal(Java)框架、MySQL数据库，开发业务接口，实现业务模块的增删改查操作。</li>
+</ul>
+</li>
+</ol>
+<!-- <div style="page-break-after: always;"></div> -->
+<ol start="2">
+<li>气候平台技术升级<br>
+<em>责任描述：</em> 负责项目代码迁移 (xhtml+jsp → D3.js+jQuery), 优化主流【浏览器适配】问题，协助团队成员优化。<br>
+<em>项目产出：</em> 完成旧项目代码技术升级任务，系统平台可继续运行使用。<br>
+<em>技术&amp;业务成果：</em>
+<ul>
+<li>通过D3.js、svg比例尺和canvas，实现可视化图表(含绘制线段、圆形、方格、坐标图、热量堆积区图等)显示，以及图表图片式导出。</li>
+<li>通过jQuery读取txt、xml类型文件，并封装公共函数，实现多个图表模块获取数据时共用，提高开发效率。</li>
+</ul>
+</li>
+</ol>
+<h1 id="%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2">技术博客</h1>
+<img src="https://wason419.github.io/img/web-re.png" width = "200" alt="blog二维码"/>
+<h1 id="%E8%87%B4%E8%B0%A2">致谢</h1>
+<p>感谢您花时间阅读我的简历，期待能有机会和您共事。</p>
+
+</body>
+</html>
