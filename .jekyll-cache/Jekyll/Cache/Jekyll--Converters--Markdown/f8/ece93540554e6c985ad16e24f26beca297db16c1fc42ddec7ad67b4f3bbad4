@@ -1,0 +1,32 @@
+I"�<h1 id="html标签-pre">HTML标签-pre</h1>
+<h3 id="pre标签学习">pre标签学习</h3>
+<p>背景：在文字的显示上， 想让文字内容中的换行符有效果，实现可换行显示内容。原用的p标签无法满足，它会把换行符替换为空格。
+pre标签不是新标签,下面是为w3c上的解释：<br />
+<img src="http://wason419.github.io/img/20190929/2019092901.png" alt="pre-w3c说明1" /></p>
+
+<p><img src="http://wason419.github.io/img/20190929/2019092902.png" alt="pre-w3c说明2" /></p>
+
+<p>原定就只是想可以实现文字换行，就直接拿来当p用了哈~</p>
+
+<p><img src="http://wason419.github.io/img/20190929/2019092903.png" alt="pre-提示和注释" /></p>
+
+<p>但pre有个问题，内容的文字会无视pre的width，文字多的会直接撑开显示，原因参考<a href="https://segmentfault.com/q/1010000000271095">该贴评论</a></p>
+<blockquote>
+  <p>ps: 因为pre默认属性pre { white-space: pre; }</p>
+</blockquote>
+
+<p>根据文章讲的改pre属性会破坏其语义，建议在父层操作，在外面加滚动条，但这是不符合想要的效果的，所以做了如下修改
+修改 了 max-width 和 white-space: pre-wrap，参考网文：<a href="https://www.cnblogs.com/nianshi/p/3613381.html">css强制换行和超出隐藏实现</a></p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">pre</span> <span class="p">{</span>
+  <span class="nl">max-width</span><span class="p">:</span> <span class="m">514px</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">10px</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">13px</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#666</span><span class="p">;</span>
+  <span class="nl">white-space</span><span class="p">:</span> <span class="n">pre-wrap</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>实现效果：</p>
+
+<p><img src="http://wason419.github.io/img/20190929/2019092904.png" alt="代码效果" /></p>
+
+:ET

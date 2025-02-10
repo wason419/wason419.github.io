@@ -1,0 +1,58 @@
+I"<h1 id="objectkeys-">Object.keys( )</h1>
+<p>返回的是参数对象自身的（不含继承的）所有可遍历（ enumerable ）属性的键名</p>
+
+<p>①传入对象，返回属性名</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="na">a</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="na">b</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="na">c</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="na">d</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="na">e</span><span class="p">:</span><span class="mi">5</span><span class="p">};</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span> <span class="c1">// ["a", "b", "c", "d", "e"]</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">data</span><span class="p">).</span><span class="nx">map</span><span class="p">((</span><span class="nx">key</span><span class="p">,</span><span class="nx">item</span><span class="p">)</span><span class="o">=&gt;</span><span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="nx">data</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span><span class="c1">//key=&gt;属性名    data[key]=&gt;属性值</span>
+    <span class="p">});</span> <span class="c1">// a 1 b 2 c 9 d 4 e 5</span>
+</code></pre></div></div>
+
+<p>②传入字符串，返回索引</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">ab1234</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">obj</span><span class="p">));</span>  <span class="c1">//[0,1,2,3,4,5]</span>
+</code></pre></div></div>
+
+<p>③传入数组 返回索引</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">arr</span><span class="p">));</span> <span class="c1">// console: ["0", "1", "2"]</span>
+</code></pre></div></div>
+
+<p>④构造函数 返回空数组或者属性名</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Pasta</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">gender</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">gender</span> <span class="o">=</span> <span class="nx">gender</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">, </span><span class="dl">"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">, </span><span class="dl">"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">gender</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">Pasta</span><span class="p">));</span> <span class="c1">//console: []</span>
+
+<span class="kd">var</span> <span class="nx">spaghetti</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pasta</span><span class="p">(</span><span class="dl">"</span><span class="s2">Tom</span><span class="dl">"</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="dl">"</span><span class="s2">male</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">spaghetti</span><span class="p">));</span> <span class="c1">//console: ["name", "age", "gender", "toString"]</span>
+
+</code></pre></div></div>
+<p>补充：</p>
+<ol>
+  <li>Object.values() <br />
+Object.values方法返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（ enumerable ）属性的键值。</li>
+  <li>Object.entries()<br />
+Object.entries方法返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（ enumerable ）属性的键值对数组。</li>
+</ol>
+
+<p>Object.keys返回相应的key属性名 或 索引<br />
+Object.values 返回相应的key属性值<br />
+Object.entries 返回每个元素含两个值的数组</p>
+
+<p><img src="http://wason419.github.io/img/20200110/2020011001.png" alt="" /></p>
+
+<p><strong>参考网文：</strong>
+<a href="https://www.jianshu.com/p/da7ccf54e7f9">Object.keys方法</a></p>
+
+:ET

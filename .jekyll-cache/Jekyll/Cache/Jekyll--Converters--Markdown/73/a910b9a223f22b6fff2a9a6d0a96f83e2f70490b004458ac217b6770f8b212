@@ -1,0 +1,30 @@
+I"�<h1 id="理解跨域问题">理解跨域问题</h1>
+<h3 id="参考网文">参考网文</h3>
+<p><a href="https://zhuanlan.zhihu.com/p/66484450?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=673301080709009408">了解跨域 </a><br />
+<a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html">阮一峰 浏览器同源政策及其规避方法</a><br />
+<a href="http://www.ruanyifeng.com/blog/2016/04/cors.html">阮一峰 跨域资源共享 CORS 详解</a><br />
+<a href="https://segmentfault.com/a/1190000012469713">ajax跨域问题解决方案</a></p>
+
+<p><strong>知识点：</strong>
+跨域问题不单只是 浏览器跟服务器之间的，还包括浏览器不同窗口之间，如iframe.</p>
+
+<blockquote>
+  <p>JS有4种接口请求类型： POST/DELETE/PUT/GET (增删改查)</p>
+</blockquote>
+
+<h3 id="解决跨域问题方式">解决跨域问题方式</h3>
+<p><strong><em>具体可参考上面网文</em></strong></p>
+<ol>
+  <li>WebSocket
+是一种通信协议，使用ws://（非加密）和wss://（加密）作为协议前缀。该协议不实行同源政策，只要服务器支持，就可以通过它进行跨源通信。<br />
+存在一个字段是Origin，表示该请求的请求源（origin），即发自哪个域名。正是因为有了Origin这个字段，所以WebSocket才没有实行同源政策。因为服务器可以根据这个字段，判断是否许可本次通信。如果该域名在白名单内，服务器就会做出回应。</li>
+  <li>H5提供的解决跨域问题的解决方案：跨文档通信API (window.postMessage)<br />
+该方法可解决浏览器不同窗口间的通信问题。</li>
+  <li>网文引用：“CORS是跨源资源分享（Cross-Origin Resource Sharing）的缩写。它是W3C标准，是跨源AJAX请求的根本解决方法” 。<br />
+其分为简单请求和非简单请求，基本逻辑是 浏览器会访问服务器询问 服务器是否同意本次跨域请求，同意的话，服务器会返回一些标示信息，浏览器得到服务器许可后，便不再进行’非同源限制’。</li>
+</ol>
+
+<h3 id="自己对浏览器请求的理解">自己对浏览器请求的理解</h3>
+<p><img src="http://wason419.github.io/img/20191019/2019101901.png" alt="浏览器数据请求理解图例" /></p>
+
+:ET

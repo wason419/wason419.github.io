@@ -1,0 +1,104 @@
+I"�<h1 id="工具篇-2">工具篇 2</h1>
+<p><strong>记录下日常开发有用到或封装的函数</strong></p>
+
+<h3 id="7限制输入框内容有单引号和双引号的就置空">7.限制输入框内容，有单引号和双引号的就置空</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function contentLimit(value) {
+    // return value.replace(/['\"‘’“”]/g,'');   // 置空
+   return value;    // 返回原值
+}
+</code></pre></div></div>
+<h3 id="8正则工具">8.正则工具</h3>
+<p>①.获取地址栏中?后面的数据并以键值对形式返回</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var str = "http://www.baidu.com?id=557131028857&amp;name=ceshi&amp;age=8";
+var reg = /([^?=&amp;]+)=([^?=&amp;]+)/g;
+var obj = {};
+str.replace(reg, function ($0, $1, $2) {
+    obj[$1] = $2;
+});
+console.log(obj); // {id: "557131028857", name: "ceshi", age: "8”}
+</code></pre></div></div>
+
+<p>②.去掉HTML标签</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var str="&lt;div id='div1' class='aa'&gt;皇帝被废，太后痛哭流涕，&lt;/div&gt;&lt;p&gt;皇室威严扫地，群臣无不悲愤。&lt;/p&gt;";
+var reg = /&lt;[^&lt;&gt;]+&gt;/g;
+str = str.replace(reg,"");
+console.log(str);//皇帝被废，太后痛哭流涕，皇室威严扫地，群臣无不悲愤。
+</code></pre></div></div>
+<p>③.大写数字替换小写数字</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var str = "38576";
+var a = ["零","壹","贰","叁","肆","伍","陆","柒","捌","玖"];
+str = str.replace(/\d/g, function () {
+    return a[arguments[0]];
+});
+console.log(str);//叁捌伍柒陆
+(arguments是当前函数的内置属性，指代当前匹配的参数伪数组。arguments[0]就是当前匹配的字符串。)
+</code></pre></div></div>
+<p>④利用正则的具名组功能 更改格式</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let re=/(?&lt;year&gt;\d{4})-(?&lt;month&gt;\d{2})-(?&lt;day&gt;\d{2})/u
+'2015-01-02'.replace(re, '$&lt;day&gt;/$&lt;month&gt;/$&lt;year&gt;’)
+获得："02/01/2015”
+</code></pre></div></div>
+<p>⑤去掉JSON字符串中的双引号和大括号（第二个参数’ ‘中间保留空格，则显示出的内容会保留空格，ps: /[ ]/ 最外层的中括号要保留）</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>JSON.stringify(item2.processinfo).replace(/["\{\}]/g, '')
+</code></pre></div></div>
+<h3 id="9解决登录回退问题使得退回首页后点击浏览器的上一步操作不会再进入系统">9.解决登录回退问题，使得退回首页后点击浏览器的上一步操作不会再进入系统</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>window.location.replace('/')
+JS进行页面跳转的方法如下
+function toBooks() {
+    // alert("跳转到图书列表");
+    //在原有窗口打开
+    window.location.href = "http://www.baidu.com";
+    //打开新的窗口
+    window.open("http://www.baidu.com");
+}
+</code></pre></div></div>
+<h3 id="10用于将字符串保存为文本文件">10.用于将字符串保存为文本文件</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function fakeClick (obj) {
+  var ev = document.createEvent('MouseEvents')
+  ev.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
+  obj.dispatchEvent(ev)
+}
+function exportRaw (name, data) {
+  var urlObject = window.URL || window.webkitURL || window
+  var exportBlob = new Blob([data])
+  var savelink = document.createElementNS('http://www.w3.org/1999/xhtml', 'a')
+  savelink.href = urlObject.createObjectURL(exportBlob)
+  savelink.download = name
+  fakeClick(savelink)
+}
+</code></pre></div></div>
+<h3 id="11自定义时间格式并返回">11.自定义时间格式并返回</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Date.prototype.getFormatDate = function(format){
+    var o = {
+        "M+" : this.getMonth()+1, //month
+        "d+" : this.getDate(), //day
+        "h+" : this.getHours(), //hour
+        "m+" : this.getMinutes(), //minute
+        "s+" : this.getSeconds(), //second
+        "q+" : Math.floor((this.getMonth()+3)/3), //quarter
+        "S" : this.getMilliseconds() //millisecond
+    }
+    if(/(y+)/.test(format)) {
+        format = format.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+    }
+    for(var k in o) {
+        if(new RegExp("("+ k +")").test(format)) {
+            format = format.replace(RegExp.$1, RegExp.$1.length==1 ? o[k] : ("00"+ o[k]).substr((""+ o[k]).length));
+        }
+    }
+    return format;
+};
+</code></pre></div></div>
+<p>调用方式，如要获取该格式”yyyy-MM-dd”的日期，就可: getFormatDate(“yyyy-MM-dd”)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>还可以采用下面方法获取指定格式的今天$.datepicker.formatDate("yy_mm_dd", new Date());案例：
+var fmtDate = '';
+fmtDate = $.datepicker.formatDate("yy_mm_dd", new Date());
+console.log(fmtDate)
+结果是
+2019_12_17
+</code></pre></div></div>
+<blockquote>
+  <p>To be continued</p>
+</blockquote>
+
+:ET

@@ -1,0 +1,64 @@
+I"
+<h1 id="简单理解">简单理解</h1>
+<p>let : 声明的变量仅在 块级作用域 有效
+var: 则是以 函数为作用域</p>
+
+<p>从 <a href="https://www.cnblogs.com/fundebug/p/6812842.html">ES6之’let’能替代’var’吗 </a> 贴文中学习了解到相关知识，总结来看，两者都还有各种的用途，let对浏览器版本的要求较高，像IE要11，Chrome要66
+ps: 虽然可以用别的方式解决兼容问题</p>
+wason419.github.io
+<p><img src="http://hao419.github.io/img/20191015/2019101501.png" alt="" /></p>
+
+<p>知识扩充：
+参考下文 <a href="https://www.jianshu.com/p/81918cb4837f"> Javascript Hoisting的概念</a> [“hoisting”陷阱] , 了解到</p>
+<ol>
+  <li>用函数声明创建的函数funDeclaration可以在funDeclaration定义之前就进行调用；</li>
+  <li>用函数表达式创建的funExpression函数不能在funExpression被赋值之前进行调用。
+可以多多使用ES6的新样式功能
+```
+e.g.1:
+var callbacks = [];
+(function() {
+for (var i = 0; i &lt; 5; i++) {
+callbacks.push( function() { return i; } );
+}
+})();
+console.log(callbacks.map( function(cb) { return cb(); } ));      //5,5,5,5,5</li>
+</ol>
+
+<p>e.g.2:
+var callbacks = [];
+(function() {
+for (let i = 0; i &lt; 5; i++) {
+callbacks.push( function() { return i; } );
+}
+})();
+console.log(callbacks.map( function(cb) { return cb(); } ));      //0,1,2,3,4</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>针对以上代码，了解一下知识：
+1. Array.push() : 可向数组的末尾添加一个或多个元素，并返回新的长度,即给数组增加元素。
+2. Array.map() : 返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。  
+</code></pre></div></div>
+<p>e.g.3:
+var words=Array(10).join(“1”).split(“”);
+console.log(words) ;//[“1”, “1”, “1”, “1”, “1”, “1”, “1”, “1”, “1”]
+var addOne=function(){
+return words.map(function(val){
+var result = parseInt(val)+1;
+return result;
+});
+};
+var newwords=addOne();
+console.log(newwords) //[2, 2, 2, 2, 2, 2, 2, 2, 2]</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>参照上面代码 可知callbacks.map(cb)中cb为callbacks数组中是每个元素的值。
+
+上面代码里，for循环后callbacks数组内容为：
+</code></pre></div></div>
+<p>function() { return i; },function() { return i; },function() { return i; },function() { return i; },function() { return i; }
+```
+所以，map方法后，会显示每个元素 i 所指向的值,
+由于e.g.1 里变量使用的是 var ，则存在 hoisting(提升) 问题，会把 var i ; 放在callbacks.push()方法前声明，类似for作用域中的“全局变量”，最终 i = 5。</p>
+
+<p>而 let 定义的块级作用域，即仅在for表单中有效，且每一个循环的 i 其实都是一个新变量，每一次循环的的 i 都是重新声明的，而要知道上一次循环的i的值的话 ，是靠JavaScript引擎内部去记住上一次循环的值，在初始化本轮的变量 i 值时，在上一次循环的基础上进行计算。</p>
+
+<p>参考网文：<a href="https://www.zhihu.com/question/55653122">JS 引擎如何实现 for (let i;…) { } 写法中每次循环绑定不同的循环变量 i?</a></p>
+
+:ET

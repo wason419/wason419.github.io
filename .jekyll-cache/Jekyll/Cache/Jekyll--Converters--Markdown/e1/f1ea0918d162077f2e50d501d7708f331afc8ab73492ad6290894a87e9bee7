@@ -1,0 +1,94 @@
+I"�<h1 id="工具篇-1">工具篇 1</h1>
+<p><strong>记录下日常开发有用到或封装的函数</strong></p>
+
+<h3 id="1邮箱验证正则公式">1.邮箱验证正则公式</h3>
+
+<p>网上找到的比较简单些的验证，如<a href="https://www.jb51.net/article/31182.htm">比较正式验证邮箱的正则</a></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/
+/^[A-Za-zd]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/
+</code></pre></div></div>
+
+<p>来自项目使用过的例子：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var ret = /^[A-Za-z0-9]+([-_.][A-Za-z0-9]+)*@([A-Za-z0-9][-A-Za-z0-9]+).gov.hk+$/;
+ret.test(str)
+</code></pre></div></div>
+
+<p>===========2019-05-25=======</p>
+
+<p>过了一段时间，好像上面 👆 的验证效果不太满足现实需要，下面 👇 再补充个
+邮箱正则验证</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/[\w!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[\w!#$%&amp;'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/
+</code></pre></div></div>
+
+<h3 id="2用正则表达式获取-url-中的想要的参数get-类型-url">2.用正则表达式获取 url 中的想要的参数（get 类型 URL）</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function _getImgStrValue(str, key) {
+    return str.match(new RegExp("(^|&amp;|/?)" + key + "=([^&amp;]*)(&amp;|$)")) ? str.match(new RegExp("(^|&amp;|/?)" + key + "=([^&amp;]*)(&amp;|$)"))[2] : ''
+}
+
+e.g.
+var res = 'failed=0&amp;start_time=201908010000&amp;end_time=201908012359&amp;time_dur=1439&amp;interval=&amp;tail=Radar/CAPPI_Ref_256km&amp;tail_label=Reflectivity, 256km&amp;num_files=24&amp;ticket=nan&amp;dummy='
+
+var t_label = _getImgStrValue(res, 'tail_label’) // Reflectivity, 256km
+</code></pre></div></div>
+
+<p>只需调用上面 👆 方法，传想要获取数据的对应 key 关键字符，方法就会获取当前 window 的 URL 路径并与正则进行匹配，然后返回想要的数据。</p>
+
+<h3 id="3限制-input-框只能输入数字或-若输入则可看到但会立马消失">3.限制 input 框只能输入数字或’-’,若输入则可看到但会立马消失</h3>
+
+<p>@使用参考代码</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;input type="text" id="question" maxlength="100" style="width: 38.1%;display: inline-block;" class="form-control" autocomplete="off" onkeyup="value=value.replace(/[^\d-]/g,'')"&gt;
+</code></pre></div></div>
+
+<p>使用正则，可以帮助我们很快的实现一些验证/过滤性功能，下面 👇 是一些对 input 输入内容进行验证的正则表达式，<strong>实现若在 input 输入违规字符，可以看到但会立马消失</strong></p>
+
+<p>① 令 input 框只能输入<strong>数字或’-’</strong>,不能输入其他字符包括中英文、特殊字符<code class="language-plaintext highlighter-rouge">onkeyup="value=value.replace(/[^\d-]/g,'')</code><br />
+② 令 input 框只能输入 <strong>数字</strong><code class="language-plaintext highlighter-rouge">onkeyup="value=value.replace(/[^\d]/g,'')</code></p>
+
+<h3 id="4对第-3的补充和延伸学习">4.对第 3.的补充和延伸学习</h3>
+
+<p>引用上面 👆<strong>第 3.</strong>，若要</p>
+
+<p>③ 令 input 不能输入单引号、双引号，<strong>注意引号要为英文字符</strong>，如此便可让英式单引号和双引号时 可以看到但也会被置空<code class="language-plaintext highlighter-rouge">onkeyup="value=value.replace(/['\"]/g,'’)</code><br />
+④ 令 input 只能输入单双引号<code class="language-plaintext highlighter-rouge">onkeyup="value=value.replace(/[^'\"]/g,’’)</code></p>
+
+<p>好，下面说下两种 input 内容正则验证的不同，下图第一种方法会检测输入的每一个值，但不合适的会把整个 value 值置空。第二种方法好些，检测每一个值，但只是把不合规矩的置空，其他的不改变。
+<img src="http://wason419.github.io/img/20190814/2019081401.png" alt="" /></p>
+
+<p>使用方式：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>第一种方法 onkeyup="value=contentLimit(value)"
+第二种方法 onkeyup="value=charactersLimit(value)"
+</code></pre></div></div>
+
+<h3 id="5数组比较一个对象数组一个普通数组要从对象数组中找到有-name-值跟普通数组的元素值相同的就从对象数组中删掉">5.数组比较，一个对象数组，一个普通数组，要从对象数组中找到有 name 值跟普通数组的元素值相同的，就从对象数组中删掉</h3>
+
+<p>案例（图是网上找的，下面代码把 name 改为 id 就可以了）
+<img src="http://wason419.github.io/img/20190814/2019081402.png" alt="" /></p>
+
+<p><strong>如下方法(可以兼容 IE)</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function unique (obj, ary){
+  return obj.filter(function(item){
+    return ary.indexOf(item.name) == -1;
+  })
+}
+</code></pre></div></div>
+<p>如果最后改 <code class="language-plaintext highlighter-rouge">return ary.indexOf(item.id) != -1</code>，则会返回被删除掉的对象数组的元素数据.
+当然，也有使用 ES6 的，一句代码搞定，不过不兼容 IE<code class="language-plaintext highlighter-rouge">const newArr = obj.filter(item =&gt; !ary.includes(item.id))</code>,因为 array.includes()不支持 IE</p>
+
+<h3 id="6实现选择好相关格式的日期后在某地显示出大写的日期日期格式要为-yyyy-mm-dd">6.实现选择好相关格式的日期后，在某地显示出大写的日期(日期格式要为 yyyy-mm-dd)</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>先定义个数组
+var weekDay = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+var date = $('#releaseDate').val(); // 获取到日期的数值,且日期格式要为 2018-02-16
+
+meetDate = date.split("-“); // 拼接成数组
+var dt = new Date(meetDate[0],(meetDate[1]-1),meetDate[2]); // 月数要减1
+
+$('#weekDay').text(weekDay[dt.getDay()]); // weekDay数组顺序要按上面排序
+</code></pre></div></div>
+
+<blockquote>
+  <p>To be continued</p>
+</blockquote>
+
+:ET

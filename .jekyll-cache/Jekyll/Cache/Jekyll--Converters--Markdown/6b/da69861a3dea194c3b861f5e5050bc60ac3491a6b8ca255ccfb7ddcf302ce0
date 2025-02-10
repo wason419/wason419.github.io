@@ -1,0 +1,55 @@
+I"�<h1 id="jquery的on监听方法使用">JQuery的on()监听方法使用</h1>
+<h3 id="参考网文">参考网文</h3>
+<p><a href="https://www.bbsmax.com/A/pRdBgO7znx/">jquery.on()超级方法</a></p>
+
+<p><strong>归纳</strong>
+在jquery的on方法中实现事件委托就更简单了，on方法可以接受三个参数：
+第一个参数是事件名，可以只绑定一个事件，如on(‘click’),也可以绑定多个事件，如on(‘click dbclick mouseover’)等</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$('ul').on('click mouseover',eventHandler); // 绑定多个事件  
+</code></pre></div></div>
+<p>第二个参数是可选参数，接受一个selector,当事件触发元素符合selector时，会调用事件处理函数</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$('ul').on('click mouseover','li',eventHandler); // 触发元素是li时执行eventandler  
+$('ul').on('click mouseover', 'li:even',eventHandler); // 触发元素是li时,而且元素是第偶数个时执行eventandler
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">注：此处用到 li:even 选择器，后面有注解</code>
+第三个参数是自定义事件处理的回调函数。</p>
+
+<h4 id="jquery的on方法支持的所有事件罗列">JQuery的ON()方法支持的所有事件罗列</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>blur
+focus
+focusin
+focusout
+load
+resize
+scroll
+unload
+click
+dblclick
+mousedown
+mouseup
+mousemove
+mouseover
+mouseout
+mouseenter
+mouseleave
+change
+select
+submit
+keydown
+keypress
+keyup
+error
+contextmenu
+</code></pre></div></div>
+
+<h3 id="拓展知识点">拓展知识点</h3>
+<p>1.jQuery :even 选择器
+选取每个带有偶数 index 值的元素（比如 2、4、6）<br />
+index 值从 0 开始，所有第一个元素是偶数 (0)<br />
+<img src="http://wason419.github.io/img/20191205/2019120501.png" alt="" /></p>
+
+<p>2.jQuery :odd 选择器<br />
+选取每个带有奇数 index 值的元素（比如 1、3、5）<br />
+<img src="http://wason419.github.io/img/20191205/2019120502.png" alt="" /></p>
+
+:ET

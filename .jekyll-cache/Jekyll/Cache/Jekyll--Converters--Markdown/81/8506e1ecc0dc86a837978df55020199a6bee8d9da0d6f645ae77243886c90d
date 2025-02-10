@@ -1,0 +1,33 @@
+I"4<h1 id="大屏可视化处理方式">大屏可视化处理方式</h1>
+<h3 id="知识点">知识点</h3>
+<p>1.
+①修改浏览器的缩放比例<br />
+②chome浏览器控制台的“toggle device toolbar(切换设备工具栏)”切换到不同尺寸(含移动端尺寸)显示<br />
+③拖动浏览器的大小<br />
+都是会更改到当前网页(html)的分辨率数值的！！如会改动1920*1280的长宽比数值</p>
+
+<p>2. 4k显示屏应该理解是说设备可以支持4K(2560*1052)像素px的分辨率，跟浏览器没有关系。而我们可通过上面方式来调节浏览器的分辨率数值，模拟出4K分辨率的页面尺寸效果to适配</p>
+
+<p>3. px是CSS像素(也称虚拟像素、设备独立像素或逻辑像素)，pt才是物理像素。
+e.g.</p>
+
+<p><img src="http://wason419.github.io/img/20191225/2019122501.png" alt="" /></p>
+
+<p>4. pt（point，磅）：是一个物理长度单位，指的是72分之一英寸。pt在css单位中属于真正的绝对单位，1pt = 1/72(inch),inch及英寸，而1英寸等于2.54厘米。<br />
+<code class="language-plaintext highlighter-rouge">转载：注意，我们通常所说的显示器分辨率，其实是指桌面设定的分辨率，而不是显示器的物理分辨率。只不过现在液晶显示器成为主流，由于液晶的显示原理与CRT不同，只有在桌面分辨率与物理分辨率一致的情况下，显示效果最佳，所以现在我们的桌面分辨率几乎总是与显示器的物理分辨率一致了。</code></p>
+
+<p>5. 静态布局 — px<br />
+自适应布局 — @media 媒体查询<br />
+流式布局 — 栅格系统( 屏幕分辨率变化时，页面里元素的大小会变化但布局不变 <code class="language-plaintext highlighter-rouge">即按页面宽度动态均分但布局不会变</code>)<br />
+响应式布局 — 媒体查询+流式布局( 使用 @media 媒体查询 和网格系统 (Grid System)  )，<code class="language-plaintext highlighter-rouge">e.g.bootstrap. 实现所有终端适配</code><br />
+弹性布局 — rem/em( 可默认设置根节点html：font-size: 62.5%, 默认浏览器字体大小为16px，则1rem = 10px 方便计算 )</p>
+
+<h3 id="参考文章">参考文章</h3>
+<ol>
+  <li><a href="https://blog.csdn.net/yiifaa/article/details/52279309">修改浏览器的缩放比例</a></li>
+  <li><a href="https://zhuanlan.zhihu.com/p/54555084">静态布局、自适应布局、流式布局、响应式布局、弹性布局等的概念和区别</a> – 大致含web开发适配发展史的各种方式</li>
+  <li><a href="https://zhidao.baidu.com/question/1450336707980769460.html">如何让网页在浏览器自适应屏幕大小</a></li>
+  <li><a href="https://blog.csdn.net/u014465934/article/details/97040694">CSS像素（px）、物理像素（pt）、rem、em、rpx</a> – 有举例，详细 ，易懂</li>
+</ol>
+
+:ET

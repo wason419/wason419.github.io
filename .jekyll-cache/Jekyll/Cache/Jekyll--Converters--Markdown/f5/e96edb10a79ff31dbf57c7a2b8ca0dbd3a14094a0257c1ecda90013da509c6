@@ -1,0 +1,14 @@
+I"|<h3 id="参考网文">参考网文</h3>
+<p><a href="https://segmentfault.com/a/1190000009864459">JavaScript 函数式编程到底是个啥</a><br />
+<a href="https://www.zhihu.com/question/59871249/answer/171201717">前端开发js函数式编程真实用途体现在哪里？</a><br />
+<a href="http://www.ruanyifeng.com/blog/2012/04/functional_programming.html?20190513012130">函数式编程初探</a><br />
+<img src="http://wason419.github.io/img/20191120/2019112001.png" alt="函数式特性.png" /></p>
+
+<p><strong>知识点:</strong>
+1.目前所做的一些应用的编程，不太需要用到函数式编程模式<br />
+2.“函数式编程可以说是种新的编程模式/思想，平时我们日常所写/所调用ES6的函数式计算，都只是参考函数式编程思想的函数式使用。”<br />
+3.“实话说各种编程开发应用函数式编程的其实比较少。实际上能看到函数式架构的项目除了某些银行内部的高端项目基本就没见过太多，不然就是大数据处理这些和Web直接关联比较小的”</p>
+
+<p><img src="http://wason419.github.io/img/20191120/2019112002.png" alt="" /></p>
+
+:ET

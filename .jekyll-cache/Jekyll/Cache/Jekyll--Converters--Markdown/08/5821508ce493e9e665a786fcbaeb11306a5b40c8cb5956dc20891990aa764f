@@ -1,0 +1,25 @@
+I"�<h1 id="innertext-和-textcontent-的区别">innerText 和 textContent 的区别</h1>
+<h3 id="区分">区分</h3>
+<p>相同点：innerText和textContent的作用都是获取元素之间的文本内容</p>
+
+<hr />
+<p>不同点：返回文本内容的样式、回流和兼容性不同</p>
+<ol>
+  <li>innerText的值依赖于浏览器的显示，textContent依赖于代码的显示（即innerText有丶联系到innerHTML，是面对HTML结构的，以界面显示样式返回。而textContent是获取代码层面的文本，已代码中结构样式返回）</li>
+  <li>如果一个元素之间包含了script标签或者style标签，innerText是获取不到这两个元素之间的文本的，而textContent可以</li>
+  <li>textContent会把空标签解析成换行（几个空标签就是几行），innerText只会把block元素类型的空标签解析换行，并且如果是多个的话仍看成是一个，而inline类型的原素则解析成空格</li>
+  <li>innerText的设置一定会引发浏览器的回流操作(比较耗性能)，而textContent则当所赋值的内容超出了容器尺寸，影响到了页面整体布局时，才会触发回流，一般只是触发浏览器的重绘</li>
+  <li>兼容性：innerText对IE兼容性较好（IE6+），textContent则兼容IE9+。
+不同浏览器对两者兼容性不同，最好用前做下判断
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if(el.textContent){
+ el.textContent='666';
+}else{
+ el.innerText='666';
+}
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>参考网文： <a href="https://www.jianshu.com/p/13096ec76ad2">innerText 和 textContent 的区别</a></p>
+
+:ET

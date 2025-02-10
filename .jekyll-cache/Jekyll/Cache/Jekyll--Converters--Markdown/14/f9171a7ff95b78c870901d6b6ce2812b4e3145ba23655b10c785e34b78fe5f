@@ -1,0 +1,40 @@
+I"*<h1 id="理解meta-标签">理解&lt;meta&gt; 标签</h1>
+<h3 id="知识点">知识点</h3>
+<ol>
+  <li>
+    <meta />
+    <p>标签永远位于 head 元素内部。
+meta使用到的属性有：name、http-equiv、Property、contect</p>
+  </li>
+  <li>name是提供了名称/值对中的名称。
+http-equiv 即提供了名称/值对中的名称，也指示服务器在发送实际的文档之前先在要传送给浏览器的 MIME 文档头部包含名称/值对。
+ <img src="http://wason419.github.io/img/20200203/2020020301.png" alt="" /></li>
+  <li>content 属性提供了名称/值对中的值，该值可以是任何有效的字符串 ，始终要和 name 属性或 http-equiv 属性一起使用。</li>
+  <li>Property 属性<br />
+```
+转载：
+Meta Property=og标签是什么呢?
+og是一种新的HTTP头部标记，即Open Graph Protocol(开放图协议)：
+The Open Graph Protocol enables any web page to become a rich object in a social graph.
+即这种协议可以让网页成为一个“富媒体对象”。</li>
+</ol>
+
+<p>用了Meta Property=og标签，就是你同意了网页内容可以被其他社会化网站引用等，目前这种协议被SNS网站如Fackbook、renren采用。
+SNS已经成为网络上的一大热门应用，优质的内容通过分享在好友间迅速传播。为了提高站外内容的传播效率，2010年F8会议上Facebook公布 了一套开放内容协议(Open Graph Protocol)，任何网页只要遵守该协议，SNS就能从页面上提取最有效的信息并呈现给用户。</p>
+
+<p>```</p>
+
+<p><img src="http://wason419.github.io/img/20200203/2020020302.png" alt="name 属性" /></p>
+
+<p><img src="http://wason419.github.io/img/20200203/2020020303.png" alt="http-equiv 属性" /></p>
+
+<p><img src="http://wason419.github.io/img/20200203/2020020304.png" alt="" /></p>
+
+<h3 id="参考文章">参考文章</h3>
+
+<ol>
+  <li><a href="https://www.w3school.com.cn/tags/tag_meta.asp">HTML <meta /> 标签</a></li>
+  <li><a href="https://www.cnblogs.com/zknublx/p/6061717.html">HTMl中Meta标签详解以及meta property=og标签含义</a></li>
+</ol>
+
+:ET

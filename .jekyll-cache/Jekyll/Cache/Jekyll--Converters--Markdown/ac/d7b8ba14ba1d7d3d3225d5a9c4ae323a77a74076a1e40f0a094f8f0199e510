@@ -1,0 +1,37 @@
+I"h<h1 id="绝对定位实现元素居中">绝对定位实现元素居中</h1>
+<p><strong>绝对定位 position：absolute 设置该元素居中</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>position: absolute;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+margin: auto;
+</code></pre></div></div>
+<p>上下左右依次设置为0，然后margin: auto; 可实现上下左右居中显示;<br />
+去掉 right: 0;  则是左侧居中显示;<br />
+去掉 left: 0;  则是右侧居中显示;<br />
+这种方式可以设置按钮竖直居中，也是设置文字居中</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div class="l-str"&gt;主持分享&lt;/div&gt;
+
+.l-str {
+position: absolute;
+top: 0;
+left: 5px;
+bottom: 0;
+display: inline-block;
+width: .5rem;
+height: 1rem;
+margin: auto;
+white-space: normal;
+text-align: center;
+}
+
+父元素高度固定
+</code></pre></div></div>
+<p><img src="http://wason419.github.io/img/20200105/2020010501.png" alt="" /></p>
+
+<h3 id="img-路径为空时css去掉边框">img 路径为空时，CSS去掉边框</h3>
+<p>当img的 src路径为空时，CSS去掉其边框</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>img[src=""],img:not([src]){opacity:0;}
+</code></pre></div></div>
+:ET

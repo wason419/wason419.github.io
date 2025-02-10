@@ -1,0 +1,110 @@
+I"�<h1 id="前言">前言</h1>
+
+<p>正则表达式 以 ^ 开始，以 $ 结束</p>
+
+<p>在JavaScript中，可以直接定义 var 变量名 = /……/;
+以正斜线包含来表示。</p>
+
+<p>也可 var 变量名 = /^…….$/;</p>
+
+<h2 id="正文">正文</h2>
+
+<h3 id="举例">举例</h3>
+
+<p>① 反向引用的最简单的、最有用的应用之一，是提供查找文本中两个相同的相邻单词的匹配项的能力
+查找重复的单词：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var str = "Is is the cost of of gasoline going up up";
+var patt1 = /\b([a-z]+) \1\b/ig;
+document.write(str.match(patt1));
+结果：Is is,of of,up up
+</code></pre></div></div>
+<p>注：</p>
+
+<ul>
+  <li>\b…\b 字符的开始和结束；</li>
+  <li>\d 表示数字 ；</li>
+  <li>\s表示任意空白符；</li>
+  <li>\w 匹配字母或数字或下划线或汉字 等价于 ‘[^A-Za-z0-9_]’</li>
+</ul>
+
+<p>&lt;font color=#ff0000&gt; 正则表达式中的小括号”()”是代表分组的意思， 如果再其后面出现\1则是代表与第一个小括号中要匹配的内容相同， \1必须与小括号配合使用；&lt;/font&gt;</p>
+
+<p>正则表达式后面的全局标记：</p>
+
+<ul>
+  <li>
+    <p>&lt;font color=#ff0000&gt;i&lt;/font&gt; 不区分大小写</p>
+  </li>
+  <li>
+    <p>&lt;font color=#ff0000&gt;g&lt;/font&gt; 指定将该表达式应用到输入字符串中能够查找到的尽可能多的匹配.</p>
+  </li>
+</ul>
+
+<p>②输出所有匹配的数据：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var str = "http://www.runoob.com:80/html/html-tutorial.html"; 
+var patt1 = /(\w+):\/\/([^/:]+)(:\d*)?([^# ]*)/; 
+arr = str.match(patt1); 
+for (var i = 0; i &lt; arr.length ; i++) { 
+  document.write(arr[i]+"&lt;/br&gt;");
+}
+结果：
+http://www.runoob.com:80/html/html-tutorial.html
+http
+www.runoob.com
+:80
+/html/html-tutorial.html
+
+</code></pre></div></div>
+<p>注:</p>
+
+<p>第一个括号子表达式捕获 Web 地址的协议部分。该子表达式匹配在冒号和两个正斜杠前面的任何单词。</p>
+
+<p>第二个括号子表达式捕获地址的域地址部分。子表达式匹配 / 和 : 之外的一个或多个字符。</p>
+
+<p>第三个括号子表达式捕获端口号（如果指定了的话）。该子表达式匹配冒号后面的零个或多个数字。只能重复一次该子表达式。</p>
+
+<p>最后，第四个括号子表达式捕获 Web 地址指定的路径和 / 或页信息。该子表达式能匹配不包括 # 或空格字符的任何字符序列</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>在 "( )"中的 "[ ]" 的表示需要匹配的内容范围，其中
+若没有加 ^ 表示需要匹配[ ]中的内容；
+若有加 ^ 页信则表示[ ]中的内容不用匹配。  
+即 有 ^ 不匹配。
+</code></pre></div></div>
+<h3 id="正则方法">正则方法</h3>
+<p><strong>test()方法</strong>: 用于检测一个字符串是否匹配某个模式. 返回一个 Boolean 值，它指出在被查找的字符串中是否匹配给出的正则表达式。 
+`
+regexp.test(str) 
+`<br />
+&lt;font color=#FF0000&gt;每个正则表达式都有一个 lastIndex 属性，用于记录上一次匹配结束的位置.&lt;/font&gt;</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var re = /^[1-9]{4,10}$/gi;
+var str = "123456";
+alert(re.test(str));      //返回true
+</code></pre></div></div>
+
+<p>执行上面的 test 之后我们可以弹出
+ <code class="language-plaintext highlighter-rouge">alert(re.lastIndex); // 弹出6</code></p>
+
+<p>即表示上一次在第6个字符之后结束
+那么下一次再调用 test 的时候， 就会从第6个字符之后继续搜索!!</p>
+
+<p>&lt;font color=#ff0000&gt;解决办法:&lt;/font&gt; 将正则表达式的 lastIndex 属性设置为0,
+具体代码如下</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type="text/javascript"&gt;
+var re = /^[1-9]{4,10}$/gi;
+var str = "123456";
+alert(re.test(str));      //返回true
+re.lastIndex=0;
+alert(re.test(str));      //返回true
+&lt;/script&gt;
+
+</code></pre></div></div>
+<p><img src="http://wason419.github.io/img/20190307/2019030701.jpg" alt="" /></p>
+
+<p>上图的一点小tip<br />
+① <code class="language-plaintext highlighter-rouge">.</code> 字符可以配置除4个“行终止符”以外的任意字符，但在ES6给正则加上/s字符后，便可以用点(dot)代表一切字符了。<br />
+② <code class="language-plaintext highlighter-rouge">$</code> 表示字符串的结束，<code class="language-plaintext highlighter-rouge">/.$/</code> 表示在字符串结束前的任意字符。</p>
+:ET

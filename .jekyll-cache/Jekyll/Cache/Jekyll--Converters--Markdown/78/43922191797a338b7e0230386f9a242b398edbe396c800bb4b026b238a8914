@@ -1,0 +1,41 @@
+I"�<h3 id="jq-监听页面竖直方向滚动显示回到顶部按钮">JQ-监听页面竖直方向滚动，显示’回到顶部’按钮</h3>
+
+<p>实现监听 页面在竖直方向的滚动，并触发显示回到顶部按钮， 点击按钮页面滚动回页面顶部</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>====JQ====
+var offset = 200; // 显示back-to-top
+var offset2 = 430; // 显示contact-us
+var duration = 500;
+$(window).scroll(function() {
+    if ($(this).scrollTop() &gt; offset) {
+        $('.back-to-top').fadeIn(400);
+    } else {
+        $('.back-to-top').fadeOut(400);
+    }
+
+    if ($(this).scrollTop() &gt; offset2) {
+        $('.contact-us-right').fadeIn(400);
+    } else {
+        $('.contact-us-right').fadeOut(400);
+    }
+});
+
+// 点击回到顶部
+$('.back-to-top').on('click',
+function(event) {
+    event.preventDefault();
+    $('html, body').animate({
+        scrollTop: 0
+    },
+    600);
+    return false;
+})；
+
+====html==== 
+&lt;html&gt;
+ &lt;body&gt;
+  &lt;!-- 返回顶部 --&gt; 
+  &lt;a href="#" class="back-to-top"&gt; &lt;img src="/img/contact-us-right/back-to-up.png" alt="" /&gt; &lt;/a&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+:ET

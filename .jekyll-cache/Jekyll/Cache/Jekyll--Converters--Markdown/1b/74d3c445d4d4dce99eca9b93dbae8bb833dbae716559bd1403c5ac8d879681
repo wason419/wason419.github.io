@@ -1,0 +1,23 @@
+I"�<h1 id="前言">前言</h1>
+<p>HTML文件调用 jQuery，要有jQuery的对象概念</p>
+
+<h1 id="正文">正文</h1>
+
+<p><strong><code class="language-plaintext highlighter-rouge">$.xxx.js</code></strong>：表示jquery对象调用<code class="language-plaintext highlighter-rouge">xxx.js</code>文件，且<code class="language-plaintext highlighter-rouge">xxx.js</code>文件是个函数，形式为
+<code class="language-plaintext highlighter-rouge">（function(...)）（jQuery ）</code>，<code class="language-plaintext highlighter-rouge">xxx.js</code>可以是自定义js文件。</p>
+
+<p>另外，要实现 <code class="language-plaintext highlighter-rouge">$.xxx.js</code> 这种调用，则 在HTML的 head 写入引用时，要把jQuery的引用写在调用<code class="language-plaintext highlighter-rouge">($.xxx.js)</code>的js文件引用之前。</p>
+
+<p><strong><em>引用网文</em></strong>：</p>
+
+<p>JS是解释型语言，是根据标签引用分块顺序从上往下执行的，$是jQuery中的产生的对象，需要用的话，必须将jquery.js引用 放在使用它的js方法前面。</p>
+
+<p>而若报<code class="language-plaintext highlighter-rouge">jQuery is not defined</code> 错误的可能原因：</p>
+
+<ul>
+  <li>①下载的jQuery文件有问题</li>
+  <li>②引用路径问题</li>
+  <li>③如上位置问题</li>
+  <li>④引用网址，网站链接问题</li>
+</ul>
+:ET

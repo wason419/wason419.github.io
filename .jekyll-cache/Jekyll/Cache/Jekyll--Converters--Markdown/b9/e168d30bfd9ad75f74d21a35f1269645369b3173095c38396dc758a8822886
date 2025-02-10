@@ -1,0 +1,79 @@
+I"�<h1 id="webpack学习之babel">webpack学习之Babel</h1>
+<h3 id="babel">Babel</h3>
+<ol>
+  <li>
+    <p>Babel其实是一个编译JavaScript的平台，它可以编译代码帮你达到以下目的：
+让你能使用最新的JavaScript代码（ES6，ES7…），而不用管新标准是否被当前使用的浏览器完全支持；
+让你能使用基于JavaScript进行了拓展的语言，比如React的JSX；</p>
+  </li>
+  <li>Babel 其实是几个模块的包，核心包是：babel-core
+    <blockquote>
+      <p>webpack可以把其不同的包整合在一起使用，对于每一个需要的功能或拓展，需要安装单独的包 ( 用得最多的是解析Es6的 babel-preset-env 包和解析JSX的 babel-preset-react 包)</p>
+    </blockquote>
+  </li>
+  <li>npm一次性安装多个依赖模块，模块之间用空格隔开
+```
+npm install –save-dev babel-core babel-loader babel-preset-env babel-preset-react</li>
+</ol>
+
+<p>安装后得到的版本是：</p>
+<ul>
+  <li>babel-preset-env@1.7.0</li>
+  <li>babel-loader@8.1.0</li>
+  <li>babel-core@6.26.3</li>
+  <li>babel-preset-react@6.24.1
+updated 4 packages in 7.705s
+```</li>
+</ul>
+
+<ol>
+  <li>这时直接运行 npm run serve，运行本地服务器，会报错：</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ERROR in ./app/main.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+Error: Cannot find module '@babel/core'
+babel-loader@8 requires Babel 7.x (the package '@babel/core'). If you'd like to use Babel 6.x ('babel-core'), you should install 'babel-loader@7'.
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:581:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:507:25)
+    at Module.require (internal/modules/cjs/loader.js:637:17)
+    at require (internal/modules/cjs/helpers.js:22:18)
+    ... 
+
+</code></pre></div></div>
+
+<p>解决方案：根据提示 更新 babel-loader 版本<br />
+npm uninstall babel-loader -D<br />
+npm i babel-loader@7 -D</p>
+
+<p>即可 使用babel处理 es6语法</p>
+
+<hr />
+
+<ol>
+  <li>
+    <p>改使用React，记得先安装 React 和 React-DOM
+安装：npm install –save react react-dom</p>
+  </li>
+  <li>
+    <p>更改Greeter.js 并返回为组件，更改main.js 为入口文件
+运行server： npm run serve</p>
+  </li>
+  <li>
+    <p>抽离babel配置内容在 .babelrc文件： touch .babelrc</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//.babelrc
+{
+  "presets": ["react", "env"]
+}
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p><strong><em>To Be Continue~</em></strong></p>
+
+<h3 id="参考文章">参考文章</h3>
+<p><a href="https://segmentfault.com/a/1190000006178770">1. 入门 webpack，看这篇就够了</a><br />
+<a href="https://www.webpackjs.com/guides/getting-started/">2. webpack 官网</a><br />
+<a href="https://segmentfault.com/a/1190000013699050">3. webpack坑系列–安装webpack-cli</a></p>
+
+:ET

@@ -1,0 +1,517 @@
+I"i_<h1 id="css3新特性-及css优先级">CSS3新特性 及CSS优先级</h1>
+<h2 id="概述">概述</h2>
+<p>一. 属于CSS3特性的如下：</p>
+<ol>
+  <li>CSS3选择器：<br />
+  ① 基本选择器（常用：子代选择器[&gt;]  /  相邻兄弟选择器[+]  /  通用兄弟选择器[~]  /  群组选择器[a,b,c 逗号隔开] ）<br />
+  ② 属性选择器（element[attribute] / element[attribute=’value’]  / element[attribute~=’value’]  / element[attribute*=’value’]  / element[attribute^=’value’]  / element[attribute$=’value’]）<br />
+  ③ 伪类（:hover、:focus等交互动作）、伪元素（::first-line / ::first-letter /  ::before /  ::after /  :selection 特定的几种情况的样式设置）<br />
+  ④ nth选择器、否定选择器（ul:not(span){ }）</li>
+  <li>CSS3边框与圆角</li>
+  <li>CSS3背景与渐变</li>
+  <li>CSS3过渡（transition）</li>
+  <li>CSS3变换（transform）</li>
+  <li>CSS3动画（animation）</li>
+</ol>
+
+<p>二. CSS 各选择器的优先级顺序</p>
+
+<h2 id="详述">详述</h2>
+<h3 id="1-css3选择器">1. CSS3选择器</h3>
+<p>选择器方面算是日常开发中用得比较多的东西，不同类型选择器的具体功能可直接百度了解，这里不做赘述。下面仅记录一点补充描述：</p>
+
+<p><code class="language-plaintext highlighter-rouge">属性选择器方面</code></p>
+<ol>
+  <li>element[attribute]
+为带有attribute属性的元素设置样式</li>
+  <li>element[attribute=’value’]
+为attribute=’value’属性的元素设置样式</li>
+  <li>element[attribute~=’value’]
+选择attribute属性值包含 单词value的元素 并设置样式</li>
+  <li>element[attribute*=’value’]
+选择attribute属性值包含value的元素设置样式</li>
+  <li>element[attribute^=’value’]
+选择attribute属性值是以value开头的元素</li>
+  <li>element[attribute$=’value’]
+选择attribute属性值是以value结尾的元素<br />
+注意比较3和4的区别</li>
+</ol>
+
+<p><code class="language-plaintext highlighter-rouge">nth选择器方面</code></p>
+<ol>
+  <li>:first-child / :last-child<br />
+语法 element:first-child<br />
+选择属于父元素的首个/最后一个子元素的每个element元素，注意element为子元素。</li>
+  <li>:nth-child(n)<br />
+选择某元素下的第n个element元素（n是一个简单的表达式，不能用其他的字母代替），括号里还可以传odd和even两个关键字</li>
+  <li>:nth-last-child(n)<br />
+匹配属于某元素下的第n个element子元素，从最后一个子元素开始计数</li>
+  <li>:nth-of-type(n)<br />
+语法 element:nth-of-type(n)<br />
+匹配属于父元素的特定类型的第n个子元素,element为指定类型的子元素</li>
+  <li>:nth-last-of-type<br />
+匹配属于父元素的特定类型的第n个子元素，从最后一个计数</li>
+  <li>:first-of-type / :last-of-type<br />
+匹配属于其父元素的特定类型的首个/最后一个子元素的每个元素</li>
+  <li>:only-child<br />
+匹配属于父元素的唯一子元素的每个元素</li>
+  <li>:only-of-type<br />
+匹配属于其父元素特定类型的唯一子元素的每个元素</li>
+  <li>:empty<br />
+匹配没有子元素（包括文本节点）的每个元素</li>
+</ol>
+
+<p><code class="language-plaintext highlighter-rouge">否定选择器方面</code><br />
+定义：匹配非 元素或者选择器 的每个元素<br />
+语法：父元素 :not(子元素或者选择器)<br />
+例：ul:not(span){}</p>
+
+<p><code class="language-plaintext highlighter-rouge">伪类选择器方面</code></p>
+<ol>
+  <li>锚点伪类<br />
+:link <br />
+:visited</li>
+  <li>用户行为伪类<br />
+:hover<br />
+:active<br />
+:focus</li>
+  <li>目标伪类<br />
+:target<br />
+当我们点击锚点链接时，对应id的元素会显示在视口</li>
+  <li>checked状态伪类
+需要知道checkbox只能设置宽高，不能设置背景和边框，如果想要设置则需要用appearance:none 处理来清除input的默认样式</li>
+</ol>
+
+<p><code class="language-plaintext highlighter-rouge">伪元素方面</code></p>
+<ol>
+  <li>element::first-line<br />
+定义：对元素的第一行文本进行设置，只能用于块级元素</li>
+  <li>element::first-letter<br />
+定义：用于向文本的首字母设置特殊样式，只能用于块级元素</li>
+  <li>element::before<br />
+定义：在元素的内容前面插入新内容，常与content配合使用</li>
+  <li>element::after<br />
+定义：在元素的内容后面插入新内容，常与content配合使用</li>
+  <li>element::selection<br />
+定义：用于设置浏览器中选中文本后的背景色与前景色</li>
+</ol>
+
+<p><code class="language-plaintext highlighter-rouge">伪元素与元素的区别:</code><br />
+无法通过JS获取其DOM<br />
+无法通过浏览器开发者工具直接查看<br />
+伪元素默认是 inline</p>
+
+<p><code class="language-plaintext highlighter-rouge">使用伪元素注意事项:</code><br />
+1.使用伪元素before,after必须设置content<br />
+2.使用伪元素before,after显示背景图，一定要使用display设置为块元素<br />
+3.使用伪元素before,after设置为display:inline-block,需要再次设置vertical-align:middle</p>
+
+<h3 id="2-css3边框与圆角">2. CSS3边框与圆角</h3>
+
+<p><code class="language-plaintext highlighter-rouge">1. CSS3圆角border-radius</code><br />
+定义：可以为元素添加圆角边框（块元素，行内块元素，行内元素）<br />
+属性：<br />
+border-top-left-radius 左上角<br />
+border-top-right-radius 右上角<br />
+border-bottom-right-radius 右下角<br />
+border-bottom-left-radius 左下角<br />
+复合属性：border-radius<br />
+属性值<br />
+四个值：左上角 右上角 右下角 左下角<br />
+三个值：左上角 右上角和左下角 右下角 <br />
+两个值：左上角和右下角 右上角和左下角<br />
+一个值：4个角都生效<br />
+border-radius中的属性值由两个参数值构成: value1 / value2，值之间用/分隔，value1代表圆角的水平半径，value2代表圆角的垂直半径。</p>
+
+<p>圆形与椭圆：<br />
+一旦使用百分比，参照的是元素本身的高度与宽度<br />
+当拿50%时，宽等于高为圆形 宽不等于高为椭圆形<br />
+<code class="language-plaintext highlighter-rouge">2. 盒阴影box-shadow</code><br />
+定义：可以控制一个或多个下拉阴影的框<br />
+语法：box-shadow: 水平方向的偏移量 垂直方向的偏移量 模糊程度 扩展程度 颜色 是否具有内阴影</p>
+
+<p>属性值的介绍:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>偏移量：  
+把元素左上角（0，0）作为基准点，找水
+平方向和垂直方向的偏移量
+水平： 正值 --- 右 ，负值 --- 左
+垂直： 正值 --- 下 ，负值 --- 上
+
+模糊程度：
+边界模糊，但是边界线未动
+由边界线向外模糊多少像素
+
+扩展程度：
+盒子阴影，上下左右都向外扩展多少像素
+
+是否具有内阴影：
+inset(默认没有，也就是默认是外阴影)
+加上inset,盒子的阴影为内阴影
+扩展程度可为负值，但是模糊程度不可以  
+</code></pre></div></div>
+
+<h3 id="3-css3背景与渐变">3. CSS3背景与渐变</h3>
+<p><code class="language-plaintext highlighter-rouge">1. CSS3背景</code><br />
+background-image<br />
+语法：<br />
+backgroundimage:url(‘1.jpg),url(‘2.jpg’)<br />
+使用逗号把图片分开<br />
+注意：元素引入多个背景图片，前面图片会覆盖后面的图片<br />
+background-cilp<br />
+定义：指定背景的绘制区域（裁剪）<br />
+语法：<br />
+background-cilp：border-box / padding-box / content-box
+属性介绍：<br />
+border-box：背景被裁剪到边框盒（从边框开始绘制背景图片）—默认  <br />
+padding-box：背景被裁剪到内边距框（从内边距开始绘制背景图片）<br />
+content-box：背景被裁剪到内容框<br />
+background-origin<br />
+定义：设置背景图像的原始起始位置<br />
+语法：<br />
+background-origin：border-box / padding-box / content-box(背景图片坐标原点与这三个有关系)<br />
+属性的介绍：<br />
+border-box：相对于边框来定位<br />
+padding-box：相对于内边距来定位<br />
+content-box：相对于内容框来定位</p>
+
+<p>另外有一个需要了解<br />
+background-position:定义背景图片的位置，水平与垂直方向上面的偏移量(参考点)<br />
+background-repeat<br />
+定义：设置是否及如何重复背景图像，默认地，背景图像在水平和垂直方向上重复。</p>
+
+<p>属性值：<br />
+repeat 默认。背景图像将在垂直方向和水平方向重复。<br />
+repeat-x 背景图像将在水平方向重复。<br />
+repeat-y 背景图像将在垂直方向重复。<br />
+no-repeat 背景图像将仅显示一次。<br />
+inherit 规定应该从父元素继承 background-repeat 属性的设置</p>
+
+<p>background-size<br />
+定义：指定背景图像的大小<br />
+语法：<br />
+background-size：number / % / cover / contain<br />
+属性介绍：<br />
+number: 宽度 高度（如果只写一个数值，第二个数值默认auto）<br />
+百分比： 0% - 100% 之间的任何值，此时的百分比参照于元素div的大小<br />
+cover：将背景图片等比缩放以填满整个容器（最远边），如果高度达到一定比例100%，宽度多出的会溢出，但是，具体那部分溢出取决于定位<br />
+contain：将背景图片等比缩放至某一边紧贴容器边缘为止（最近边），如果图片高度比较小，高度就会有空白区域出现</p>
+
+<p><strong>复合属性background</strong><br />
+定义：可以在一个声明中设置所有的背景属性<br />
+语法：<br />
+background：color position size repeat origin clip attachment image; background: #abc center 50% no-repeat content-box content-box fixed url(‘1.jpg’) ,url(‘2.jpg’)…</p>
+
+<p><code class="language-plaintext highlighter-rouge">2. CSS3渐变</code><br />
+定义：可以在两个或者多个指定颜色之间显示平移的过渡</p>
+
+<ul>
+  <li>
+    <p>线性渐变<br />
+定义：是沿着一根轴线改变颜色，从起点到终点进行顺序渐变（从一边拉向另一边）<br />
+语法：background:linear-gradient(方向，开始颜色，结束颜色)</p>
+  </li>
+  <li>方向介绍：
+    <ol>
+      <li>方向从上到下（默认）<br />
+background: linear-gradient(red,blue);</li>
+      <li>方向从左到右<br />
+background: linear-gradient(to right,red,blue);</li>
+      <li>对角<br />
+background: linear-gradient(to right bottom,red,blue);</li>
+      <li>角度(单位deg)<br />
+background: linear-gradient(角度,red,blue);<br />
+角度说明：0deg 将创建一个从下到上的渐变，90deg将创建一个从左到右的渐变</li>
+    </ol>
+  </li>
+  <li>
+    <p>颜色结点：默认每个颜色均匀分布<br />
+background: linear-gradient(red 10%,blue 20%,green 30%,yellow 40%);<br />
+从0%到10%，为红色，从10%到20%为红色到蓝色的渐变，从20%到30%为蓝色到绿色的渐变，从30%到40%，为绿色到黄色的渐变,从40%到100%为黄色<br />
+background: linear-gradient(red 10%,blue);<br />
+从0%到10%，为红色，从10%到100%为红色到蓝色的渐变 <br />
+最后如果不写具体数值，默认到100%<br />
+background: linear-gradient(red,blue 30%);<br />
+从0%到30%，为红色到蓝色的渐变<br />
+如果第一个不写，默认数值是 0%<br />
+background:lineargradient(rgba(255,0,0,0),rgba(255,0,0,1));<br />
+由透明色变为不透明色</p>
+  </li>
+  <li>
+    <p>重复渐变<br />
+示例1：background: repeating-linear-gradient(90deg,red 0%,blue 20%);或者 background: repeating-linear-gradient(90deg,red 0%,blue 10%,red 20%);<br />
+注意：把元素的整体宽度看成100%</p>
+  </li>
+  <li>
+    <p>径向渐变<br />
+定义：从起点到终点，颜色从内向外进行圆形渐变<br />
+语法：background:radial-gradient(形状尺寸，开始颜色，结束颜色)<br />
+形状分类：<br />
+circle — 圆形<br />
+ellipse — 椭圆形<br />
+注意：当元素的高和宽一样时，参数无论设置哪个，都是圆形</p>
+  </li>
+  <li>
+    <p>尺寸大小：<br />
+closest-side 最近边<br />
+background: radial-gradient(closest-side circle,red , blue);<br />
+farthest-side 最远边<br />
+background: radial-gradient(farthest-side circle,red , blue);<br />
+closest-corner 最近角<br />
+background: radial-gradient(closest-corner circle,red , blue);<br />
+farthest-corner   最远角<br />
+background: radial-gradient(farthest-corner circle,red , blue);</p>
+  </li>
+  <li>
+    <p>颜色结点：<br />
+例：background:radial-gradient(circle,red 50% ,blue 70%);<br />
+注意：此时的百分比,指的是圆心到元素最远端的距离（角度）</p>
+  </li>
+  <li>重复渐变：<br />
+示例2： background: repeating-radial-gradient(red 0%,blue 20%);<br />
+background: repeating-radial-gradient(red 0%,blue 10%,red 20%);</li>
+</ul>
+
+<h3 id="4-css3过渡">4. CSS3过渡</h3>
+<p>定义：允许css的属性值在一定时间区间内平滑的过渡，在鼠标点击，鼠标滑过或对元素任何改变中触发，并圆滑地以动画形式改变css的属性值。</p>
+
+<p>属性：</p>
+<ol>
+  <li>transition-property属性 <br />
+定义：设置对象中的参与过渡的属性<br />
+语法：transition-property：none | all | property<br />
+参数说明：<br />
+none： 没有属性改变<br />
+all : 默认值，所有属性都改变<br />
+property： 元素的属性名 width,color等</li>
+  <li>transition-duration属性<br />
+定义: 设置对象过渡的持续时间<br />
+语法：transition-duration：time<br />
+参数说明：<br />
+规定完成过渡效果需要花费的时间，以秒或者毫秒计，默认值0</li>
+  <li>transition-timing-function属性<br />
+定义：设置对象中过渡的动画类型<br />
+语法：只能使用一个属性值<br />
+参数说明：<br />
+ease:平滑过渡（0–慢–快–慢），默认值<br />
+cubic-bezier(0.25,0.1,0.25,1)<br />
+linear:线性过渡（匀速） cubic-bezier(0,0,1,1)<br />
+ease-in:慢–快 cubic-bezier(0.42,0,1,1)<br />
+ease-out:快–慢 cubic-bezier(0,0,0.58,1)<br />
+ease-in-out:慢–快–慢<br />
+cubic-bezier(0.42,0,0.58,1)<br />
+贝塞尔曲线 : http://cubic-bezier.com/#.17,…</li>
+  <li>transition-delay属性<br />
+定义：设置对象延迟的过渡时间<br />
+语法：transition-delay：time<br />
+参数说明：<br />
+指定秒或者毫秒数来延迟动画效果的开始，默认是0</li>
+  <li>transition复合属性<br />
+语法：<br />
+transition ： property duration timing-function delay；<br />
+参数说明：过渡时间和延迟时间的顺序不能乱</li>
+</ol>
+
+<h3 id="5-css3变换">5. CSS3变换</h3>
+<p>定义：让一个元素在一个坐标系统中变形，这个属性包含一系列的变形函数，可以移动，旋转，缩放元素。<br />
+语法：transform：none | &lt;transform-function&gt; 默认值是none</p>
+
+<p><strong>2d变换</strong></p>
+<ol>
+  <li>rotate()旋转<br />
+定义：通过指定一个角度参数，对元素指定一个2D的旋转<br />
+语法：transform：rotate(angle) 单位deg<br />
+参数说明：angle指旋转角度，正数表示顺时针旋转，负数表示逆时针旋转</li>
+  <li>translate()平移<br />
+定义：根据X轴和Y轴的位置给定参数，使当前元素位置移动<br />
+分类：<br />
+translateX() 仅水平方向移动<br />
+语法：transform：translateX() 单位px<br />
+translateY() 仅垂直方向移动<br />
+语法：transform：translateY() 单位px<br />
+translate(x,y) 水平方向和垂直方向同时移动<br />
+语法：transform：translate( X, Y) 单位px<br />
+注意：如果只写一个参数，第二个默认是0，也就是只设置了水平方向上的位移</li>
+  <li>scale( )缩放<br />
+定义：设置元素的缩放程度<br />
+分类：<br />
+scaleX( ) 仅水平方向缩放<br />
+语法：transform：scaleX() 没有单位<br />
+scaleY( ) 仅垂直方向缩放<br />
+语法：transform：scaleY() 没有单位<br />
+scale(x,y) 使元素水平和垂直方向同时缩放<br />
+语法：transform：scale(x,y) 没有单位</li>
+  <li>skew()扭曲/倾斜<br />
+定义：设置元素的倾斜状态<br />
+分类：<br />
+skewX( ) 仅使元素在水平方向上扭曲变形 单位deg 正值 —-逆时针<br />
+skewY( ) 仅使元素在垂直方向上扭曲变形 单位deg 正值 —-顺时针<br />
+skew( ) 使元素在水平方向和垂直方向上扭曲变形 单位deg
+注意：0deg与180deg 效果一样</li>
+  <li>变换基点<br />
+定义：元素变换的基准点<br />
+语法： transform-origin：水平方向 垂直方向<br />
+参数说明：<br />
+left top 左上角 —-四个角均可以<br />
+25% top<br />
+50px 50px<br />
+默认值：<br />
+rotate 几何中心点<br />
+skew 几何中心点<br />
+scale 几何中心点 <br />
+translate 本身位置</li>
+</ol>
+
+<p><strong>3d变换</strong></p>
+<ol>
+  <li>开启3d空间transform-style: preserve-3d; 一般给父元素开启</li>
+  <li>
+    <p>子元素设置3d变换效果<br />
+rotate<br />
+rotateX()<br />
+定义：指对象在X轴上的旋转角度（变换基点： 50% 50% 0）<br />
+rotateY()<br />
+定义：指对象在Y轴上的旋转角度（变换基点： 50% 50% 0）<br />
+rotateZ()<br />
+定义：指对象在Z轴上的旋转角度（变换基点： 50% 50% 0） 
+translate<br />
+translateZ()<br />
+定义：指对象在Z轴上面的平移（变换基点： 50% 50% 0）<br />
+scale<br />
+scaleZ()<br />
+定义：指定对象的Z轴缩放（变换基点： 50% 50% 0）(无太大意义，开启3d空间)</p>
+  </li>
+  <li>
+    <p>设置景深：实现近大远小<br />
+父元素子元素都可以设置<br />
+父元素: perspective: 300px;<br />
+子元素:
+transform:perspective(300px) translateZ(-200px);<br />
+注意：景深：可选值：大于或等于0,景深值越大，元素看起来越大
+默认值: 0 – 没有景深 （不能为负值）</p>
+  </li>
+  <li>
+    <p>变换基点<br />
+默认值： 50% 50% 0<br />
+transform-origin: top; 关键字表示 ( 50% 0 0 )<br />
+注意：立体3d盒子 Z：只能使用具体的长度，不能使用百分比和关键字</p>
+  </li>
+  <li>
+    <p>景深中心点：改变观察者视角<br />
+perspective-origin: top;<br />
+perspective-origin: top right;</p>
+  </li>
+  <li>元素背面可见还是不可见<br />
+backface-visibility: visible ;（默认值：可见）<br />
+backface-visibility: hidden; 不可见</li>
+</ol>
+
+<h3 id="6-css3动画">6. CSS3动画</h3>
+<p>定义：使元素从一种样式逐渐变化到另外一种样式的效果<br />
+<strong>@keyframes</strong><br />
+定义：keyframes关键帧，用来决定动画变化的关键位置<br />
+注意：keyframes 控制关键位置，并不是所有的位置</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>语法：
+@keyframes  animationname{
+  keyframes-selector{
+    cssStyles;
+  }
+}
+</code></pre></div></div>
+<p>animationname：必写项，定义动画的名称<br />
+keyframes-selector：必写项，动画持续时间的百分比 0% - 100%之间， 或者使用form和to关键字也可以设置，form代表0%，to代表100%<br />
+示例：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  @keyframes abc {
+    from{transform: rotate(0)}
+    50%{transform:rotate(90deg)}
+    to{transform: rotate(360deg)}
+  }
+</code></pre></div></div>
+<p><strong>animation属性</strong></p>
+<ol>
+  <li>animation-name属性<br />
+设置对象所应用的动画名称<br />
+语法：<br />
+animation-name：keyframename | none<br />
+参数说明：<br />
+keyframename：指定要绑定到选择器的关键帧的动画名称</li>
+  <li>animation-duration属性<br />
+定义：设置对象动画的持续时间<br />
+语法：animation-duration：time<br />
+参数说明：指定对象播放完成需要花费的时间，默认值是0</li>
+  <li>animation-timing-function属性<br />
+定义：设置对象动画的过渡类型<br />
+参数说明：与transition-timing-function属性的参数一样</li>
+  <li>animation-delay属性<br />
+定义：设置动画的延迟时间<br />
+语法：animation-delay：time<br />
+参数说明：可选值，定义动画开始前等待的时间，以秒或者毫秒数计数，默认值是0</li>
+  <li>animation-iteration-count属性<br />
+定义：设置对象动画的循环次数<br />
+语法：animation-iteration-count ： infinite | number<br />
+参数说明：<br />
+number为数字，其默认值是1<br />
+infinite：无限循环次数</li>
+  <li>animation-direction属性<br />
+定义：设置对象动画是否反向运动<br />
+语法：
+animation-direction：normal , reverse , alternate , alternate-reverse<br />
+参数说明：<br />
+normal : 正常方向<br />
+reverse :反向运动<br />
+alternate ： 先正常运动在反向运动，并持续交替运行， 需要配合循环属性使用<br />
+alternate-reverse ： 先反向运动在正常运动，并持续交替运行， 需要配合循环属性使用</li>
+  <li>animation-play-state属性<br />
+定义：指定对象是否正在运行或已暂停<br />
+语法：animation-play-state：paused | running<br />
+参数说明：<br />
+paused ： 指定暂停动画<br />
+running : 默认值，制定正在运行的动画<br />
+示例：鼠标移动到box上暂停动画
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  #box:hover{
+ animation-play-state: paused;
+  }
+</code></pre></div>    </div>
+  </li>
+  <li>animation-fill-mode<br />
+设置动画结束后的状态<br />
+none：默认值。不设置对象动画之外的状态，DOM未进行动画前状态<br />
+forwards：设置对象状态为动画结束时的状态，100%或to时，当设置animation-direcdtion为reverse时动画结束后显示为keyframes第一帧<br />
+backwards：设置对象状态为动画开始时的状态,（测试显示DOM未进行动画前状态）<br />
+both：设置对象状态为动画结束或开始的状态，结束时状态优先</li>
+  <li>animation复合属性（不推荐使用 ）<br />
+语法：<br />
+animation ： name duration timing-function delay interation-count direction play-state</li>
+</ol>
+
+<p>注意：在css3里面，给元素设置圆角、阴影、变换等属性时，尽管外形位置发生改变，但是元素本身大小和位置不变</p>
+
+<hr />
+
+<h3 id="css-各选择器的优先级顺序">CSS 各选择器的优先级顺序</h3>
+<p>优先级：!important &gt; 内联样式 &gt; id选择器 &gt; 类、伪类、属性选择器 &gt; 标签、伪元素选择器<br />
+权   重：<br />
+① !important：10000<br />
+② 内联： 1000<br />
+③ id选择器：100<br />
+④ 类、伪类、属性选择器：10<br />
+⑤ 标签、伪元素选择器：1<br />
+⑥ <code class="language-plaintext highlighter-rouge">通用选择器（*）、子选择器（&gt;）、相邻兄弟选择器（+）、通用兄弟选择器（~）权重值为0</code></p>
+
+<p>CSS 各个选择器列表：
+|  选择器 || e.g.  | 说明  |
+|  —-  |  —-  | —-  | —- |
+| 后代选择器  | el el | div p | 选择div元素内部的所有p元素 |
+| 子代选择器  | el&gt;el | div&gt;p | 选择div元素的第一子代的所有p元素 |
+| 相邻兄弟选择器  | el+el | .msg+p | 选择与class为”msg”的元素同级且紧跟其后的第一个p元素 |
+| 通用兄弟选择器  | el~el | .msg~p | 选择class为”msg”的元素后面的所有p元素 |
+| 群组选择器  | el,el | p, span, .blue,#box | 选择所有的p元素、span元素、class为”blue”的元素以及id为”box”的元素 |
+| 伪类选择器  | :link<br />:visited<br />:hover<br />:active<br />:focus | a:hover | 选择鼠标指针位于a标签之上的链接 |
+| 伪元素选择器  | ::before<br />::after<br />::first-line<br />::first-letter<br />::selection | p::before | 在每个p元素内容之前插入内容 |
+| 属性选择器  | [attribute]   | [target] | 选择带有target属性的所有元素 |
+| 通用选择器  | * | * | 选择所有的元素 |</p>
+
+<!-- ### 参考文章 ###
+[1. 入门 webpack，看这篇就够了][1]  
+
+[1]: https://segmentfault.com/a/1190000010936764 -->
+:ET

@@ -1,0 +1,55 @@
+I"N<h1 id="多行文字字数不一致的两端对齐">多行文字字数不一致的两端对齐</h1>
+<h3 id="需求">需求</h3>
+<p><strong><em>CSS 两行代码轻松实现 多行文字字数不一致的两端对齐问题</em></strong></p>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nt">style</span> <span class="nt">lang</span><span class="o">=</span><span class="s2">"stylus"</span> <span class="nt">scoped</span><span class="o">&gt;</span>
+<span class="nc">...</span>
+<span class="nc">.p-con-body</span>
+  <span class="nt">display</span> <span class="nt">flex</span>
+  <span class="nt">flex-direction</span> <span class="nt">row</span>
+  <span class="nt">font-size</span> <span class="nc">.4rem</span>
+  <span class="nt">ul</span>
+    <span class="nt">flex</span> <span class="nt">1</span>
+    <span class="nt">display</span> <span class="nt">flex</span>
+    <span class="nt">flex-direction</span> <span class="nt">column</span>
+    <span class="nt">justify-content</span> <span class="nt">space-between</span>
+    <span class="nt">li</span>
+      <span class="nt">flex</span> <span class="nt">1</span>
+      <span class="nt">line-height</span> <span class="nt">1rem</span>
+      <span class="nt">text-align</span> <span class="nt">center</span>
+      <span class="nt">border</span> <span class="nt">1px</span> <span class="nt">solid</span> <span class="nn">#eeeeee</span>
+    <span class="k">&amp;</span><span class="nd">:first-child</span>
+      <span class="nt">background-color</span> <span class="nn">#cfbb80</span>
+      <span class="nt">color</span> <span class="nn">#ffffff</span>
+      <span class="nt">font-weight</span> <span class="nt">600</span>
+      <span class="nt">li</span>
+        <span class="nt">color</span> <span class="nn">#ffffff</span>
+        <span class="nt">border-bottom</span> <span class="nt">1px</span> <span class="nt">solid</span> <span class="nn">#ffffff</span>
+        <span class="nt">text-align-last</span> <span class="nt">justify</span>
+        <span class="nt">padding</span> <span class="nt">0</span> <span class="nt">3</span><span class="nc">.4rem</span>
+<span class="nc">...</span>
+<span class="o">&lt;/</span><span class="nt">style</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<p>关键是这两句</p>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">text-align-last</span> <span class="nt">justify</span>
+<span class="nt">padding</span> <span class="nt">0</span> <span class="nt">3</span><span class="nc">.4rem</span>
+</code></pre></div></div>
+<p>使用text的text-align-last 为justify 属性，便可实现把每行li内的文字两端对齐，再设置下li的padding内边距即可。
+样式效果：</p>
+
+<p><img src="http://wason419.github.io/img/20200416/2020041601.png" alt="" /></p>
+
+<h3 id="补充知识点">补充知识点</h3>
+<p><strong>CSS3—first-child或者nth-child(1) 不起作用的原因</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>e.g.原HTML的结构大致是
+&lt;div&gt;
+    &lt;svg&gt;
+    &lt;p&gt;
+    &lt;p&gt;
+&lt;/div&gt;
+</code></pre></div></div>
+<p>在对P标签使用CSS的first-child和nth-child(1)属性定义时，发现总是不起作用，百度了下才发现，原来自己以前的理解有误: first-child和nth-child(1)并不是从定义的标签内部开始计算位置，如P。
+而是从所定义标签的父元素开始计算，如上面👆的div。
+所以要定义第一个P标签的属性，就应是nth-child(2)</p>
+
+:ET

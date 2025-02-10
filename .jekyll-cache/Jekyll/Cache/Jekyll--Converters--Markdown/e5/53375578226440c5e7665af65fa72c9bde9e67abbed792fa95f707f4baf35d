@@ -1,0 +1,143 @@
+I"<h1 id="arcgis-api-for-javascript-422学习---构建-vuearcgis-项目">ArcGIS API for JavaScript 4.22学习 - 构建 Vue+ArcGIS 项目</h1>
+<p>下面将记录下如何构建一个 Vue + ArcGIS 的项目。</p>
+
+<h2 id="构建环境">构建环境</h2>
+<p>在正式开发前，本地需要先配置好两个环境： NodeJS环境和Vue环境</p>
+
+<p><strong>NodeJS环境安装</strong><br />
+可进入到NodeJS中文官网(https://nodejs.org/zh-cn/download/current/)的下载页下载NodeJS，此处不建议下载最新版本的，因为若是后续有要使用sass/scss等CSS预处理器的话， sass/scss与NodeJS 的版本依赖较高，最新版本的NodeJS一般会导致sass/scss安装失败。我个人使用的是 Node.js 14.18.2 版本(https://nodejs.org/download/release/v14.18.2/)的</p>
+
+<blockquote>
+  <p>网页入口在：NodJS官网→下载页，选择”以往版本”→表格选择一个稳定版本，如v14.18.2(我主要是考虑兼容scss)，点击下载跳转→在下载页下载程序 即可。</p>
+</blockquote>
+
+<p>如下图</p>
+
+<p><img src="/img/20210715/2021071503.png" alt="" /><br />
+<img src="/img/20210715/2021071501.png" alt="" /><br />
+<img src="/img/20210715/2021071502.png" alt="" /></p>
+
+<p>下载完安装包之后，双击安装包，弹出安装界面，选择相应的安装目录或者默认安装路径，然后一路点击 Next 按钮即可，中间过程并没有特别需要注意的地方；安装完成后，打开电脑 cmd 窗口，查询node版本号信息，若能显示出版本号则安装成功。</p>
+
+<p><img src="/img/20210715/2021071504.png" alt="" /></p>
+
+<p><strong>Vue环境安装</strong><br />
+Vue方面我个人使用的是 Vue2.x 版本，可执行下面命令安装环境并创建项目</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 最新稳定版
+npm install vue
+
+# 在自己对应的项目目录下 创建Vue项目
+# 创建过程中，注意选择Vue2
+vue create xxxx 
+</code></pre></div></div>
+
+<blockquote>
+  <p>可通过命令行 vue –version ，查看当前安装的 Vue 环境版本</p>
+</blockquote>
+
+<h2 id="使用arcgis">使用ArcGIS</h2>
+<p>网上涉及 Vue+ArcGIS 的比较多的都是用 4.17 以前的版本，均是会推荐安装 npm install esri-loader –save-dev 。 而我使用的是 ArcGIS最新版本的 ESM 方式，我需要安装的是 @arcgis/core， 模块的使用也如同我们平时ES6加载模块功能一样便利。</p>
+<ol>
+  <li>在当前创建的 Vue项目目录里，右键打开命令行工具，执行并引用 ArcGIS 的 ESM 模块：
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 将模块安装到项目中
+npm install @arcgis/core
+</code></pre></div>    </div>
+  </li>
+  <li>若有需要用到相关 ArcGIS 模块的，直接使用import语句加载单个模块
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import WebMap from "@arcgis/core/WebMap";
+import * as projection from "@arcgis/core/geometry/projection";
+</code></pre></div>    </div>
+  </li>
+  <li>还需要在 App.vue 或者自定义的 index.vue 页面中，引入相关的CSS文件
+```</li>
+</ol>
+
+<style>
+/* 使用GIS小组件如弹框、距离/面积测量时，需要引用当前css才能显示 */
+@import "https://js.arcgis.com/4.22/@arcgis/core/assets/esri/themes/dark/main.css";
+</style>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+综上，便完成了在Vue中 引用 ArcGIS 的配置，接下来若有需要用到相关 ArcGIS 模块的，直接import即可。  
+
+## 加载地图 ##  
+在配置好相关环境和模块库后，下面我就以 加载地图 作为例子分享下如何使用 ArcGIS JS API 开发。  
+
+首先，完成创建 Vue 项目后，可更改 App.vue 文件，或者自定义 index.vue 页面文件并设置好router跳转，再在App/index文件中 import引入相关 ArcGIS 模块，如 Map 和 MapView. 接着，初始化 Map 和 MapView 实例，并在页面挂载后调用。完整页面代码 以及执行npm run serve 命令后的界面效果如下： 
+ 
+</code></pre></div></div>
+
+<!--
+ * @Author: wason
+ * @version: 
+ * @Descripttion: 
+ * @LastEditors: wason
+-->
+<template>
+  <div id="app"></div>
+</template>
+
+<script>
+import Map from "@arcgis/core/Map";
+import MapView from "@arcgis/core/views/MapView";
+
+export default {
+  name: "App",
+  methods: {
+    //创建地图
+    _createMapView: function () {
+      try {
+        // 基础2D道路地图显示
+        const map = new Map({
+          //实例化地图
+          basemap: "streets",
+        });
+        const view = new MapView({
+          //实例化地图视图
+          container: "app",
+          map: map,
+          zoom: 11,
+          center: [104.072044, 30.663776], // 成都省市经纬度坐标
+        });
+        view.ui.components = [];
+      } catch (err) {
+        console.log("地图创建失败===>", err);
+      }
+    },
+  },
+
+  mounted: function () {
+    this._createMapView();
+  },
+};
+</script>
+
+<style>
+@import "https://js.arcgis.com/4.22/@arcgis/core/assets/esri/themes/dark/main.css";
+#app {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#infoDiv {
+  padding: 10px;
+  width: 275px;
+}
+#sliderValue {
+  font-weight: bolder;
+}
+#legendDiv {
+  width: 260px;
+}
+#description {
+  padding: 10px 0 10px 0;
+}
+</style>
+
+<p>```</p>
+
+<p><img src="/img/20210715/2021071505.png" alt="" /></p>
+
+<p>当在http://localhost:8080/#/ 页面下看到上图时，便成功实现了首次 ArcGIS 的模块应用。</p>
+
+:ET

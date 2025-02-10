@@ -1,0 +1,79 @@
+I"f<h1 id="工具篇-3">工具篇 3</h1>
+<p><strong>记录下日常开发有用到或封装的函数</strong></p>
+
+<h3 id="12在多行字符串a中截取中间部分字符串">12.在多行字符串A中截取中间部分字符串</h3>
+<p><code class="language-plaintext highlighter-rouge">字符串A 是一段xml文件内容的text文本(strA)，截取其中绿色框的内容</code>
+<img src="http://wason419.github.io/img/20190916/201909161201.png" alt="" /></p>
+
+<p>截取的正则式 <code class="language-plaintext highlighter-rouge">strA.match('&lt;MTSAT3/SDTC_x2M def_setting="(.+?)" /&gt;’)</code>
+得到的结果是:
+<img src="http://wason419.github.io/img/20190916/201909161202.png" alt="" />
+则再取<a href="https://baike.baidu.com/item/%E5%9F%BA%E5%A7%86%E6%8B%89%E5%B0%94%E6%A3%AE%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F/713396?fr=aladdin">1</a>即可 <code class="language-plaintext highlighter-rouge">strA.match('&lt;MTSAT3/SDTC_x2M def_setting="(.+?)" /&gt;’)[1]</code>，得到
+<img src="http://wason419.github.io/img/20190916/201909161203.png" alt="" /></p>
+
+<p>考虑到灵活性，也可把会改变的抽离出来:</p>
+
+<blockquote>
+  <p>strA.match(`&lt;${imageTypeData} def_setting=”(.+?)” /&gt;`)[1]</p>
+  <h3 id="13计算某一日期是星期几">13.计算某一日期是星期几</h3>
+  <p>当我们知道某一’yyyy-mm-dd’日期时便可以计算出当前是星期几，公式如下：</p>
+</blockquote>
+
+<p><a href="https://baike.baidu.com/item/%E5%9F%BA%E5%A7%86%E6%8B%89%E5%B0%94%E6%A3%AE%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F/713396?fr=aladdin">基姆拉尔森计算公式</a></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>W= (d+2*m+3*(m+1)/5+y+y/4-y/100+y/400) mod 7
+</code></pre></div></div>
+<p>在公式中d表示日期中的日数，m表示月份数，y表示年数。(其中mod意思是取余计算，js用的是%)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>举个栗子：
+function s(str){
+    var y = parseInt(str.split('-')[0])
+    console.log(str.split('-'))
+    var m = parseInt(str.split('-')[1])
+    var d = parseInt(str.split('-')[2])
+    var W= parseInt((y + y /4 + y / 400 - y / 100 + 2 * m + 3 * (m + 1)/5 + d) % 7)
+    console.log(W)
+}
+s('2019-07-10’)
+
+日期数值对应
+0-6 对应于 周日-周六
+</code></pre></div></div>
+
+<h3 id="14读取xml文件">14.读取xml文件</h3>
+<p>一般读取正常的xml文件，仅需用ajax，并设置datatype: html，即可读取<br />
+但如果xml文件含有特殊字符，则需做另一种处理<br />
+①先用ajax，并设置dataType: “text”, 已文本的形式读取出xml文件内容<br />
+②再通过下面方法，把xml字符文本 转为 xml 格式即可<br />
+③需要把xml文本中的 ‘&amp;’ 转换为 实体。参考文章: <a href="https://www.cnblogs.com/catgatp/p/6403326.html">xml 转义特殊字符</a></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//字符串转化为xml
+function toXmlDom(str){
+  var xmlDoc = null;
+  var source = ''
+  source = str.replace(new RegExp('&amp;','g'),'&amp;amp;')
+  if (window.ActiveXObject) {
+      var ARR_ACTIVEX = ["MSXML4.DOMDocument","MSXML3.DOMDocument","MSXML2.DOMDocument","MSXML.DOMDocument","Microsoft.XmlDom"];
+      var XmlDomflag = false;
+      for (var i = 0;i &lt; ARR_ACTIVEX.length &amp;&amp; !XmlDomflag ;i++) {
+          try {
+              var objXML = new ActiveXObject(ARR_ACTIVEX[i]);
+              xmlDoc = objXML;
+              XmlDomflag = true;
+          } catch (e) {
+          }
+      }
+      if (xmlDoc) {  
+          xmlDoc.async = false;
+          xmlDoc.loadXML(source);
+      }
+  }else{
+  var parser=new DOMParser();
+  var xmlDoc=parser.parseFromString(source,"text/xml");
+}
+  return xmlDoc;
+}
+</code></pre></div></div>
+
+<blockquote>
+  <p>To be continued</p>
+</blockquote>
+
+:ET

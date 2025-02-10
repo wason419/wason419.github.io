@@ -1,0 +1,49 @@
+I"
+<h1 id="d3js-和-snapsvg的-区别">D3.js 和 Snap.svg的 区别</h1>
+<h3 id="参考网文">参考网文</h3>
+<p><a href="https://segmentfault.com/a/1190000015782472">d3</a><br />
+<a href="https://github.com/xswei/d3js_doc">D3.js中文文档</a><br />
+<a href="https://segmentfault.com/a/1190000006961922">Snap.svg</a><br />
+<a href="http://snapsvg.io/demos/#mascot">Snap官网</a></p>
+
+<p><strong>知识点：</strong>
+1.D3使用函数式的JavaScript编程风格
+2.如下表</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">工具  </th>
+      <th>Snap.svg</th>
+      <th>D3.js</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">特点</td>
+      <td>类似svg中的jQuery库</td>
+      <td>D3.js(Data-Driven Documents)即被数据驱动的文档,它是一个用于根据数据来操作文档的JavaScript库</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">描述</td>
+      <td>1.实现了svg中的一些高级特性的功能，比如蒙板、渐变、分组以及动画等高级特性，而且也不再对老版本的不支持svg的浏览器进行兼容，大大减少了代码量更加能发挥svg的特性<br />2.能创建svg格式的图形，也能基于现有的svg图形来进行操作</td>
+      <td>1.相对于echart, highchart等其他图表库<br />2.D3算是比较底层的可视化工具,不提供任何一种现成的图表，所有的图表都是在它的库里挑选合适的方法构建而成<br />3.主要用于网页作图、生成互动图形</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">与JQuery区别</td>
+      <td>它的功能跟jQuery在dom的作用差不多，只不过它是专门用来操作svg的</td>
+      <td>1. D3是数据驱动的，JQuery不是：<br />我们使用JQuery选择器$()直接操纵元素；<br />D3通过专有的datum(),data(),enter()和exit()方法提供数据和回调，然后操作元素；<br />2. D3用来做数据可视化，jQuery用来创建web应用</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">浏览器支持</td>
+      <td>Snap只支持IE9+,chrome,safari,firefox以及opera等现代浏览器。</td>
+      <td>不包括IE8及以前的版本, 在Chrome、Firefox、Safari、Opera和IE9上都能正常使用,D3的大部分组件可以在旧的浏览器运行</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>PS：<br />
+① <a href="https://www.jianshu.com/p/2df05f279331">Markdown插入表格语法</a><br />
+② <a href="https://blog.csdn.net/gdnh22a/article/details/91360953">markdown表格内换行</a></p>
+
+:ET
