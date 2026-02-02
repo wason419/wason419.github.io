@@ -4,12 +4,11 @@
 
 # 个人信息
 
-<img src="https://wason419.github.io/img/mi.jpg" width = "125" alt="照片" align="right"/>
+<img src="https://wason419.github.io/img/mi.jpg" width = "100" alt="照片" align="right"/>
 
 - <font size=6>翁浩端</font> / 男 / 1993 / 共产党员
-- 本科 / 华南理工大学广州学院 **·** 软件工程专业 / 8年工作经验
 
-<!-- - 技术博客：<a href="https://wason419.github.io/">Wason Blog</a> -->
+- 本科 / 华南理工大学广州学院 **·** 软件工程专业 / 8年工作经验
 
 - 期望职位：Web前端工程师 &#8194; | &#8194; 期望城市：广州
 
