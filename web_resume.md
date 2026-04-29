@@ -14,9 +14,9 @@
 
 # 技能清单
 
-1. **积极响应领导安排**，快速处理任务并独立解决问题；有高度的责任心和 协作能力，**与同事均能友好合作**。
-2. 熟练使用以下技能：
-   - Web开发：Vue3(Vue2) / TypeScript / webpack、vite / 小程序 / NodeJs / IndexedDB
+1. **积极响应领导安排**，快速接收任务并处理；有高度的责任心和 协作能力，**与同事均能友好合作**。   
+2. 熟练使用以下技能：   
+   - Web开发：Vue3(Vue2) / TypeScript / webpack、vite / 小程序 / NodeJs / IndexedDB 
    - 可视化库：ElementUI / ECharts3 / Vant / D3.js / Ant Design of Vue
    - 前端框架：Electron / uni-app / jQuery / unocss
    - 版本管理、文档和自动化部署工具：GitLab / Jenkins
@@ -28,18 +28,19 @@
 
 ## 粤港澳大湾区国家技术创新中心 （ 2025年1月 ~ 至今 ）
 
-**主要工作内容：** 基于Vue3 + ElementUI + TypeScript + node_modules模块化，开发仿真材料库数据管理系统。  
+**主要工作内容：** 基于Vue3 + ElementUI + TypeScript + 组件模块化，开发仿真材料库数据管理系统。        
 **重点项目：**
 
 1. 仿真材料基础资源库项目  
    <span style="color:#A9A9A9;">_责任描述：_ </span>      
-   - 完整的 门户侧交互开发          
+   - 完整的 门户侧交互开发             
    - 运营侧部分业务 以及公共资源侧的 共用组件开发         
             
    <span style="color:#A9A9A9;">_项目产出：_</span> 完成交付 门户侧的仿真材料库数据管理系统，业务试运营与项目验收。           
-   <span style="color:#A9A9A9;">_技术&业务成果：_ </span>       
-   - 基于功能模块化思想，采用npm资源包方式 来封装公共的 UI-Layout、组件和业务逻辑。          
-   - 借助AI 工具(如Claude Code等), 提升项目开发效率。          
+   <span style="color:#A9A9A9;">_技术&业务成果：_ </span>         
+   - 基于组件模块化思想，采用npm资源包方式 来封装公共的 UI-Layout、组件和业务逻辑。                      
+   - 基于Graham扫描凸包算法，制作Ashby图表（双对数散点图）来快速识别材料特性。             
+   - 基于IntersectionObserver视口相交API，实现页面滚动时 同步菜单栏高亮。                        
 
 ## 广州太平洋电脑信息咨询有限公司 （ 2024年10月 ~ 2025年1月 ） <font size=2>_[高级前端工程师]_</font>
 
