@@ -14,21 +14,21 @@
 
 # 技能清单
 
-1. **积极响应领导安排**，快速接收任务并处理；有高度的责任心和 协作能力，**与同事均能友好合作**。   
+1. **积极响应领导安排**，快速消化并完成任务；有较强责任心和 协作能力，**与同事均能友好合作**。   
 2. 熟练使用以下技能：   
-   - Web开发：Vue3(Vue2) / TypeScript / webpack、vite / 小程序 / NodeJs / IndexedDB 
-   - 可视化库：ElementUI / ECharts3 / Vant / D3.js / Ant Design of Vue
-   - 前端框架：Electron / uni-app / jQuery / unocss
-   - 版本管理、文档和自动化部署工具：GitLab / Jenkins
+   - Web开发：Vue3(Vue2) / TypeScript / webpack、vite / 小程序 / NodeJs / IndexedDB    
+   - 可视化库：ElementPlus / ECharts3 / Vant / D3.js / Ant Design of Vue      
+   - 前端框架：Electron / uni-app / unocss / jQuery      
+   - 版本管理、文档和自动化部署工具：GitLab / Jenkins    
    - AI开发：Claude Code
-3. 具备丰富的项目实战经验: 管理系统(含数据可视化)、桌面软件(Electron)、小程序(uni-app)、项目封装(npm模式)
+3. 具备丰富的项目实战经验: 管理系统(含数据可视化)、桌面软件(Electron)、小程序(uni-app)
 4. 具有团队管理经验(小组团队)：任务安排、上行下达、代码把控、进度控制。
 
 # 工作经历
 
 ## 粤港澳大湾区国家技术创新中心 （ 2025年1月 ~ 至今 ）
 
-**主要工作内容：** 基于Vue3 + ElementUI + TypeScript + 组件模块化，开发仿真材料库数据管理系统。        
+**主要工作内容：** 基于Vue3 + ElementPlus + TypeScript + 组件模块化，开发仿真材料库数据管理系统。        
 **重点项目：**
 
 1. 仿真材料基础资源库项目  
@@ -53,7 +53,7 @@
    <span style="color:#A9A9A9;">_技术&业务成果：_ </span>             
    - 菜单权限、公共板块功能的重构开发。             
    - 把控小组成员的 开发进度、合适的任务排期 与文档输出。                  
-   - 旧项目代码冗余、页面加载缓慢等性能问题的优化，实现 FCP和TTI耗时减少大概50%、利用uno-css替换冗余代码以提升渲染速度。      
+   - 优化旧项目代码冗余、页面加载卡顿等性能问题，通过 Performance 性能监控调优，FCP、TTI 耗时优化降幅约 50%；引入 UnoCSS 精简冗余样式，有效提升页面渲染速度。           
 
 ## 奥格科技股份有限公司 （ 2021年10月 ~ 2024年9⽉ ） <font size=2>_[高级前端工程师]_</font>
 
@@ -72,7 +72,7 @@
    <span style="color:#A9A9A9;">_项目产出：_</span> 可对全国范围内 大部分乡村建设的发展现状，进行信息采集、图片/视频录入和治理评价，充分实现线上感知与管理。    
    <span style="color:#A9A9A9;">_技术&业务成果：_ </span>          
    - 通用业务逻辑 抽离成Hooks，提高复用性。     
-   - 针对路由守卫造成的⻚⾯加载缓慢问题, 通过将权限Pinia化、校验轻量化、避免复杂计算和接口请求等方式，实现页面渲染时长降低至1~2秒。            
+   - 优化路由守卫导致的页面加载慢问题，采用 Pinia 权限托管、轻量化校验逻辑，摒弃复杂计算与多余接口请求，缩短FCP耗时，提升页面渲染效率。        
 
 <!-- 最高文件体积 71.8MB -->
 
