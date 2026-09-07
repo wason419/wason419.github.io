@@ -2,12 +2,12 @@
 <p><strong>知识点：</strong></p>
 <ol>
   <li>function(){}外还可增加以下内容,它们都是实现 function立即调用/执行的作用
-    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="cm">/* code */</span> <span class="p">})</span> <span class="p">(</span> <span class="p">);</span> <span class="c1">// 直接调用</span>
-<span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="cm">/* code */</span> <span class="p">}</span> <span class="p">(</span> <span class="p">));</span> <span class="c1">// 强制执行</span>
-<span class="o">!</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="cm">/* code */</span> <span class="p">}</span> <span class="p">(</span> <span class="p">);</span>
-<span class="o">~</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="cm">/* code */</span> <span class="p">}</span> <span class="p">(</span> <span class="p">);</span>
-<span class="o">-</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="cm">/* code */</span> <span class="p">}</span> <span class="p">(</span> <span class="p">);</span>
-<span class="o">+</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="cm">/* code */</span> <span class="p">}</span> <span class="p">(</span> <span class="p">);</span>
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* code */</span> <span class="p">})</span> <span class="p">(</span> <span class="p">);</span> <span class="c1">// 直接调用</span>
+<span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* code */</span> <span class="p">}</span> <span class="p">(</span> <span class="p">));</span> <span class="c1">// 强制执行</span>
+<span class="o">!</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* code */</span> <span class="p">}</span> <span class="p">(</span> <span class="p">);</span>
+<span class="o">~</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* code */</span> <span class="p">}</span> <span class="p">(</span> <span class="p">);</span>
+<span class="o">-</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* code */</span> <span class="p">}</span> <span class="p">(</span> <span class="p">);</span>
+<span class="o">+</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* code */</span> <span class="p">}</span> <span class="p">(</span> <span class="p">);</span>
 </code></pre></div>    </div>
   </li>
   <li>

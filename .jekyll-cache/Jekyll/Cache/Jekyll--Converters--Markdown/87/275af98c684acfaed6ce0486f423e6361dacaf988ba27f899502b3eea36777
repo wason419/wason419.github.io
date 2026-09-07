@@ -14,11 +14,11 @@
 </code></pre></div></div>
 <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--</span><span class="err">—</span><span class="nt">css---</span>
 <span class="nc">.fancy</span> <span class="p">{</span>
-  <span class="nl">text-shadow</span><span class="p">:</span> <span class="m">2px</span> <span class="m">2px</span> <span class="m">3px</span> <span class="no">gold</span><span class="p">;</span>
+  <span class="nl">text-shadow</span><span class="p">:</span> <span class="m">2px</span> <span class="m">2px</span> <span class="m">3px</span> <span class="nx">gold</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="c">/* 类名不是 `.fancy` 的 &lt;p&gt; 元素 */</span>
 <span class="nt">p</span><span class="nd">:not</span><span class="o">(</span><span class="nc">.fancy</span><span class="o">)</span> <span class="p">{</span>
-  <span class="nl">color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="nx">green</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="c">/* 非 &lt;p&gt; 元素 */</span>
 <span class="nt">body</span> <span class="nd">:not</span><span class="o">(</span><span class="nt">p</span><span class="o">)</span> <span class="p">{</span>
